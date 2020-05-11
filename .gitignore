@@ -1,0 +1,5 @@
+*.out
+*.user
+*_obj/*
+*_release/*
+*build-*
