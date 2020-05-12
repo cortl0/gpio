@@ -8,22 +8,27 @@ C++
 #### ./bash/
 GPIO scripts
 
-#### ./src/*/*/*_definition_generator.cpp
+#### ./src/ (cpu || board) /
+Board and CPU Implementation code
+
+#### ./src/ (cpu || board) / * / *_definition_generator.cpp
 Definition generator for each CPU and Board  
 (calculations before compile time)
 
-#### ./src/board/ and ./src/cpu/
-Board and CPU Implementation code
+#### ./src/ (cpu || board) / * / *_example.hpp
+Example usung for each CPU and Board
 
 #### ./src/main.cpp
 Example of using GPIO for CPUs and Boards
 
-#### ./src/creator.cpp
+#### ./src/creator/creator.cpp
 Template for new CPUs and boards
 
 #### Available CPUs
 Allwinner H2+  
 http://www.allwinnertech.com/index.php?c=product&a=index&id=62  
+  
+Broadcom BCM2835  
   
 Texas Instruments AM335x  
 https://www.ti.com/sitesearch/docs/universalsearch.tsp?searchTerm=AM335x#q=AM335x&t=technicaldocument&linkId=3
@@ -34,6 +39,8 @@ http://www.banana-pi.org/m2pz.html
   
 BeagleBone Black  
 https://beagleboard.org/black
+  
+Raspberry Pi Zero rev 1.3  
 
 ## Build
 make  

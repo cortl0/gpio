@@ -158,6 +158,16 @@ void create_cpu_definition_generator_cpp()
 
     w("    w(\"#define GPIO0_0_OFFSET      0\");");
 
+
+    w("    w(\"#define P_SELECT_INPUT      0b000\");");
+    w("    w(\"#define P_SELECT_OUTPUT     0b001\");");
+    w("    w(\"#define P_SELECT_OPTION2    0b010\");");
+    w("    w(\"#define P_SELECT_OPTION3    0b011\");");
+    w("    w(\"#define P_SELECT_OPTION4    0b100\");");
+    w("    w(\"#define P_SELECT_OPTION5    0b101\");");
+    w("    w(\"#define P_SELECT_OPTION6    0b110\");");
+    w("    w(\"#define P_SELECT_DISABLE    0b111\");");
+
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"typedef unsigned long int uword;\");");
