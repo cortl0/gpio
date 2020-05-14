@@ -25,18 +25,20 @@ void example()
 
     cpu _cpu;
 
+    _cpu.write_bits(P01_GPFSEL_REG, P01_GPFSEL_BIT, 3, FSEL_OUTPUT);
+    _cpu.write_bits(P02_GPFSEL_REG, P02_GPFSEL_BIT, 3, FSEL_INPUT);
 
     for (int i = 0; i < 5; i++)
     {
-        _cpu.write_bit(GPIO0, GPIO0_0_OFFSET, HIGH);
+        _cpu.write_bit(P01_GPSET_REG, P01_GPSET_BIT, HIGH);
 
-        std::cout << std::to_string(_cpu.read_bit(GPIO0, GPIO0_0_OFFSET)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(P02_GPLEV_REG, P02_GPLEV_BIT)) << std::endl;
 
         sleep(1);
 
-        _cpu.write_bit(GPIO0, GPIO0_0_OFFSET, LOW);
+        _cpu.write_bit(P01_GPCLR_REG, P01_GPCLR_BIT, HIGH);
 
-        std::cout << std::to_string(_cpu.read_bit(GPIO0, GPIO0_0_OFFSET)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(P02_GPLEV_REG, P02_GPLEV_BIT)) << std::endl;
 
         sleep(1);
     }

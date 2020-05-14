@@ -144,20 +144,25 @@ void create_cpu_definition_generator_cpp()
 //    w("std::for_each(ports[0].pins.begin(), ports[0].pins.end(), [](port::pin& p){");
 //    w("    #define GPIO0_\" + p.name + \"               \" + p.offset);");
 //    w("});");
-
+    w("    w(\"\");");
+    w("    w(\"\");");
+    w("    w(\"// Register name            Offset\");");
     w("    w(\"#define GPIO0               0x0\");");
-
-
+    w("    w(\"\");");
+    w("    w(\"\");");
+    w("    w(\"// Pin name, parameter      Offset\");");
+    w("    w(\"\");");
+    w("    w(\"// Pin data registor\");");
+    w("    w(\"#define GPIO0_0_DATA_REG    0x0\");");
+    w("    w(\"// Pin offset in registor\");");
+    w("    w(\"#define GPIO0_0_DATA_BIT    0x0\");");
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"/*\");");
+    w("    w(\" * GPIO Option Select\");");
     w("    w(\" * Datasheet page number\");");
-    w("    w(\" * Pin Name                 Offset\");");
+    w("    w(\" * Name                     Value\");");
     w("    w(\" */\");");
-
-
-    w("    w(\"#define GPIO0_0_OFFSET      0\");");
-
 
     w("    w(\"#define P_SELECT_INPUT      0b000\");");
     w("    w(\"#define P_SELECT_OUTPUT     0b001\");");
@@ -214,6 +219,9 @@ void create_cpu_definition_generator_pro()
     w("CONFIG -= app_bundle");
     w("CONFIG -= qt");
     w("");
+    w("HEADERS += " + cpu_name_lower + "_definitions.h \\");
+    w("HEADERS += " + cpu_name_lower + "_example.hpp");
+    w("");
     w("SOURCES += " + cpu_name_lower + "_definition_generator.cpp");
     ofs.close();
 }
@@ -241,6 +249,7 @@ void create_cpu_example_hpp()
     w("void example()");
     w("{");
     w("    std::cout << \"" + cpu_name + "\" << std::endl;");
+    w("    std::cout << \"write to P00\\nread ftom P01\" << std::endl;");
     w("");
     w("    cpu _cpu;");
     w("");

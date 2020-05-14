@@ -11,7 +11,7 @@
 cpu::cpu()
 {
     if(init())
-        throw std::runtime_error("cpu::cpu() - init failed");
+        throw std::runtime_error("cpu::cpu() - init failed\nmaybe the target system does not match the current");
 }
 
 cpu::~cpu()
