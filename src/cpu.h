@@ -27,12 +27,13 @@
 
 //#include "board/beaglebone_black/beaglebone_black_definitions.h"
 //#include "board/bpi_p2_zero/bpi_p2_zero_definitions.h"
-#include "board/raspberry_pi_zero_r1_3/raspberry_pi_zero_r1_3_definitions.h"
+//#include "board/raspberry_pi_zero_r1_3/raspberry_pi_zero_r1_3_definitions.h"
 
-//#include "cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
+#include "cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
 //#include "cpu/broadcom_bcm2835/broadcom_bcm2835_definitions.h"
 //#include "cpu/ti_am335x/ti_am335x_definitions.h"
 
+// for debug template
 //#include "cpu/cpu_template/cpu_template_definitions.h"
 //#include "board/board_template/board_template_definitions.h"
 
@@ -48,13 +49,14 @@ class cpu
 public:
     cpu();
     ~cpu();
-    void       pin_mode(uword memory_offset, uword bit_offset, uword value);
-    bool       read_bit(uword memory_offset, uword bit_offset);
-    void      write_bit(uword memory_offset, uword bit_offset, bool  value);
-    uword     read_bits(uword memory_offset, uword bit_offset, uword length);
-    void     write_bits(uword memory_offset, uword bit_offset, uword length, uword value);
-    uword read_full_reg(uword memory_offset);
-    void write_full_reg(uword memory_offset, uword value);
+    bool       read_bit(uword    memory_offset, uword bit_offset);
+    void      write_bit(uword    memory_offset, uword bit_offset, bool  value);
+    uword     read_bits(uword    memory_offset, uword bit_offset, uword length);
+    void     write_bits(uword    memory_offset, uword bit_offset, uword length, uword value);
+    u_int8_t  read_byte(u_int8_t memory_offset);
+    void     write_byte(u_int8_t memory_offset, u_int8_t  value);
+    uword read_full_reg(uword    memory_offset);
+    void write_full_reg(uword    memory_offset, uword value);
 };
 
 #endif // CPU_H

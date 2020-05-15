@@ -12,7 +12,7 @@ GPIO scripts
 Board and CPU Implementation code
 
 #### ./src/ (cpu || board) / * / *_definition_generator.cpp
-Definition generator for each CPU and Board  
+Definitions generator for each CPU and Board  
 (calculations before compile time)
 
 #### ./src/ (cpu || board) / * / *_example.hpp

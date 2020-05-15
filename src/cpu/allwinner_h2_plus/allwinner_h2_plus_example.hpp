@@ -21,22 +21,27 @@ void example()
 {
     std::cout << "Allwinner H2 Plus" << std::endl;
 
+    std::cout << "write to PA13\nread ftom PA14" << std::endl;
+
     cpu _cpu;
 
-    _cpu.pin_mode(PA13_CFG, PA13_CFG_OFFSET, P_SELECT_OUTPUT);
-    _cpu.pin_mode(PA14_CFG, PA14_CFG_OFFSET, P_SELECT_INPUT);
+    _cpu.write_bits(PA13_CFG_REG, PA13_CFG_BIT, 3, P_SELECT_OUTPUT);
+    _cpu.write_bits(PA14_CFG_REG, PA14_CFG_BIT, 3, P_SELECT_INPUT);
+
+    _cpu.write_bits(PA13_PUL_REG, PA13_PUL_BIT, 2, P_PULL_DISABLE);
+    _cpu.write_bits(PA14_PUL_REG, PA14_PUL_BIT, 2, P_PULL_UP);
 
     for (int i = 0; i < 5; i++)
     {
-        _cpu.write_bit(PA_DAT, PA13_PIN, HIGH);
+        _cpu.write_bit(PA13_DAT_REG, PA13_DAT_BIT, HIGH);
 
-        std::cout << std::to_string(_cpu.read_bit(PA_DAT, PA14_PIN)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(PA14_DAT_REG, PA14_DAT_BIT)) << std::endl;
 
         sleep(1);
 
-        _cpu.write_bit(PA_DAT, PA13_PIN, LOW);
+        _cpu.write_bit(PA13_DAT_REG, PA13_DAT_BIT, LOW);
 
-        std::cout << std::to_string(_cpu.read_bit(PA_DAT, PA14_PIN)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(PA14_DAT_REG, PA14_DAT_BIT)) << std::endl;
 
         sleep(1);
     }

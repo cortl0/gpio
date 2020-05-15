@@ -90,12 +90,6 @@ int cpu::release_resourses()
     return return_value;
 }
 
-void cpu::pin_mode(uword memory_offset, uword bit_offset, uword value)
-{
-    // Attention! The length of the value is not controlled
-    (*reinterpret_cast<uword*>(gpio + memory_offset) &= ~(uword(0b111) << bit_offset)) |= value << bit_offset;
-}
-
 bool cpu::read_bit(uword memory_offset, uword bit_offset)
 {
     return *reinterpret_cast<uword*>(gpio + memory_offset) & 1 << bit_offset;
@@ -115,6 +109,16 @@ void cpu::write_bits(uword memory_offset, uword bit_offset, uword length, uword 
 {
     // Attention! The length of the value is not controlled
     (*reinterpret_cast<uword*>(gpio + memory_offset) &= ~((~uword(0) >> (sizeof(uword) * 8 - length)) << bit_offset)) |= value << bit_offset;
+}
+
+u_int8_t cpu::read_byte(u_int8_t memory_offset)
+{
+    return *reinterpret_cast<u_int8_t*>(static_cast<u_int8_t>(gpio) + memory_offset);
+}
+
+void cpu::write_byte(u_int8_t memory_offset, u_int8_t value)
+{
+    *reinterpret_cast<u_int8_t*>(static_cast<u_int8_t>(gpio) + memory_offset) = value;
 }
 
 uword cpu::read_full_reg(uword memory_offset)

@@ -153,9 +153,12 @@ int main()
     w("");
     w("/*");
     w(" * Description:");
-    w(" * Pin num (bit offset in data register)");
-    w(" * Offset in configure register");
     w(" * Configure register");
+    w(" * Bit offset in configure register");
+    w(" * Data register");
+    w(" * Bit offset in data register");
+    w(" * Pull register");
+    w(" * Bit offset in pull register");
     w(" */");
     w("");
     std::string s0;
@@ -178,9 +181,13 @@ int main()
                 s2 = " ";
             else
                 s2 = "";
-            w("#define " + p.name + s0 + std::to_string(i) + "_PIN            " + std::to_string(i) + s1);
-            w("#define " + p.name + s0 + std::to_string(i) + "_CFG_OFFSET     " + std::to_string(i % 8 * 4) + s2);
-            w("#define " + p.name + s0 + std::to_string(i) + "_CFG            " + p.name + "_CFG" + std::to_string(i / 8));
+            w("#define " + p.name + s0 + std::to_string(i) + "_CFG_REG        " + p.name + "_CFG" + std::to_string(i / 8));
+            w("#define " + p.name + s0 + std::to_string(i) + "_CFG_BIT        " + std::to_string(i % 8 * 4));
+            w("#define " + p.name + s0 + std::to_string(i) + "_DAT_REG        " + p.name + "_DAT");
+            w("#define " + p.name + s0 + std::to_string(i) + "_DAT_BIT        " + std::to_string(i));
+            w("#define " + p.name + s0 + std::to_string(i) + "_PUL_REG        " + p.name + "_PUL" + std::to_string(i / 16));
+            w("#define " + p.name + s0 + std::to_string(i) + "_PUL_BIT        " + std::to_string(i % 16 * 2));
+
             w("");
         }
     });
@@ -200,6 +207,15 @@ int main()
     w("#define P_SELECT_OPTION5    0b101");
     w("#define P_SELECT_OPTION6    0b110");
     w("#define P_SELECT_DISABLE    0b111");
+    w("");
+    w("");
+    w("/*");
+    w(" * Pull-up/down Select");
+    w(" * Default value is P_PULL_DISABLE");
+    w(" */");
+    w("#define P_PULL_DISABLE      0b00");
+    w("#define P_PULL_UP           0b01");
+    w("#define P_PULL_DOWN         0b10");
     w("");
     w("");
     w("typedef unsigned long int uword;");
