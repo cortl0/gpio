@@ -23,20 +23,24 @@ void example()
 {
     std::cout << "Raspberry_Pi_Zero_r1_3" << std::endl;
 
+    std::cout << "write to J8_P03\nread ftom J8_P05" << std::endl;
+
     cpu _cpu;
 
+    _cpu.write_bits(J8_P03_GPFSEL_REG, J8_P03_GPFSEL_BIT, 3, FSEL_OUTPUT);
+    _cpu.write_bits(J8_P05_GPFSEL_REG, J8_P05_GPFSEL_BIT, 3, FSEL_INPUT);
 
     for (int i = 0; i < 5; i++)
     {
-        _cpu.write_bit(CON0_0_DAT_OFFSET, CON0_0_BIT_OFFSET, HIGH);
+        _cpu.write_bit(J8_P03_GPSET_REG, J8_P03_GPSET_BIT, HIGH);
 
-        std::cout << std::to_string(_cpu.read_bit(CON0_0_DAT_OFFSET, CON0_0_BIT_OFFSET)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(J8_P05_GPLEV_REG, J8_P05_GPLEV_BIT)) << std::endl;
 
         sleep(1);
 
-        _cpu.write_bit(CON0_0_DAT_OFFSET, CON0_0_BIT_OFFSET, LOW);
+        _cpu.write_bit(J8_P03_GPCLR_REG, J8_P03_GPCLR_BIT, HIGH);
 
-        std::cout << std::to_string(_cpu.read_bit(CON0_0_DAT_OFFSET, CON0_0_BIT_OFFSET)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(J8_P05_GPLEV_REG, J8_P05_GPLEV_BIT)) << std::endl;
 
         sleep(1);
     }

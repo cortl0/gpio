@@ -113,9 +113,9 @@ void create_cpu_definition_generator_cpp()
     w("    w(\"#define \" + cpu_name_upper + \"_DEFINITIONS_H\");");
     w("    w(\"\");");
     w("    w(\"\");");
-    w("    w(\"#define CPU_NAME \" + cpu_name);");
-    w("    w(\"#define CPU_NAME_LOWER \" + cpu_name_lower);");
-    w("    w(\"#define CPU_NAME_UPPER \" + cpu_name_upper);");
+    w("    w(\"#define CPU_NAME         \" + cpu_name);");
+    w("    w(\"#define CPU_NAME_LOWER   \" + cpu_name_lower);");
+    w("    w(\"#define CPU_NAME_UPPER   \" + cpu_name_upper);");
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"/*\");");
@@ -202,7 +202,7 @@ void create_cpu_definition_generator_makefile()
     w("\trm $(TARGET)");
     w("");
     w("$(TARGET): $(NAME).cpp");
-    w("\tg++ -std=c++17 -o $(TARGET) $(NAME).cpp");
+    w("\tg++ -std=c++14 -o $(TARGET) $(NAME).cpp");
     w("\t./$(TARGET)");
     ofs.close();
 }
@@ -215,12 +215,12 @@ void create_cpu_definition_generator_pro()
     });
     w("");
     w("TEMPLATE = app");
-    w("CONFIG += console c++11");
+    w("CONFIG += console c++14");
     w("CONFIG -= app_bundle");
     w("CONFIG -= qt");
     w("");
     w("HEADERS += " + cpu_name_lower + "_definitions.h \\");
-    w("HEADERS += " + cpu_name_lower + "_example.hpp");
+    w("           " + cpu_name_lower + "_example.hpp");
     w("");
     w("SOURCES += " + cpu_name_lower + "_definition_generator.cpp");
     ofs.close();
@@ -375,9 +375,9 @@ void create_board_definition_generator_cpp()
     w("    w(\"#include \" + path_header);");
 
     w("    w(\"\");");
-    w("    w(\"#define BOARD_NAME \" + board_name);");
-    w("    w(\"#define BOARD_NAME_LOWER \" + board_name_lower);");
-    w("    w(\"#define BOARD_NAME_UPPER \" + board_name_upper);");
+    w("    w(\"#define BOARD_NAME           \" + board_name);");
+    w("    w(\"#define BOARD_NAME_LOWER     \" + board_name_lower);");
+    w("    w(\"#define BOARD_NAME_UPPER     \" + board_name_upper);");
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"/*\");");
@@ -414,7 +414,7 @@ void create_board_definition_generator_makefile()
     w("\trm $(TARGET)");
     w("");
     w("$(TARGET): $(NAME).cpp");
-    w("\tg++ -std=c++17 -o $(TARGET) $(NAME).cpp");
+    w("\tg++ -std=c++14 -o $(TARGET) $(NAME).cpp");
     w("\t./$(TARGET)");
     ofs.close();
 }
@@ -427,9 +427,23 @@ void create_board_definition_generator_pro()
     });
     w("");
     w("TEMPLATE = app");
-    w("CONFIG += console c++11");
+    w("CONFIG += console c++14");
     w("CONFIG -= app_bundle");
     w("CONFIG -= qt");
+    w("");
+
+//    if(board_cpu_name.size() > 0)
+//    {
+    w("HEADERS += ../../cpu/" + board_cpu_name + "/" + board_cpu_name + "_definitions.h \\");
+    w("           " + board_name_lower + "_definitions.h \\");
+    w("           " + board_name_lower + "_example.hpp");
+//    }
+//    else
+//    {
+//        w("HEADERS += " + board_name_lower + "_definitions.h \\");
+//        w("           " + board_name_lower + "_example.hpp");
+//    }
+
     w("");
     w("SOURCES += " + board_name_lower + "_definition_generator.cpp");
     ofs.close();
@@ -458,6 +472,7 @@ void create_board_example_hpp()
     w("void example()");
     w("{");
     w("    std::cout << \"" + board_name + "\" << std::endl;");
+    w("    std::cout << \"write to P00\\nread ftom P01\" << std::endl;");
     w("");
     w("    cpu _cpu;");
     w("");

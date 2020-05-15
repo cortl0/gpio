@@ -18,14 +18,14 @@ static std::string cpu_name_upper("BROADCOM_BCM2835");
 class pin
 {
 public:
-    int num;
+    int number;
     int offset;
     std::string name;
     std::string offset_str;
-    pin(int num) : num(num)
+    pin(int number) : number(number)
     {
-        offset = num % 32;
-        name = (num < 10 ? "0" : "") + std::to_string(num);
+        offset = number % 32;
+        name = (number < 10 ? "0" : "") + std::to_string(number);
         offset_str = (offset < 10 ? "0" : "") + std::to_string(offset);
     }
 };
@@ -137,20 +137,20 @@ int main()
     {
 		w("");
 		w("// Pin " + p.name);
-        w("#define P" + p.name + "_GPFSEL_REG          GPFSEL" + std::to_string(p.num / 10));
-        w("#define FSEL" + p.name + "                  " + std::to_string((p.num % 10) * 3));
+        w("#define P" + p.name + "_GPFSEL_REG          GPFSEL" + std::to_string(p.number / 10));
+        w("#define FSEL" + p.name + "                  " + std::to_string((p.number % 10) * 3));
         w("#define P" + p.name + "_GPFSEL_BIT          FSEL" + p.name);
 
-        w("#define P" + p.name + "_GPSET_REG           GPSET" + std::to_string(p.num / 32));
-        w("#define SET" + p.name + "                   " + std::to_string(p.num % 32));
+        w("#define P" + p.name + "_GPSET_REG           GPSET" + std::to_string(p.number / 32));
+        w("#define SET" + p.name + "                   " + std::to_string(p.number % 32));
         w("#define P" + p.name + "_GPSET_BIT           SET" + p.name);
 
-        w("#define P" + p.name + "_GPCLR_REG           GPCLR" + std::to_string(p.num / 32));
-        w("#define CLR" + p.name + "                   " + std::to_string(p.num % 32));
+        w("#define P" + p.name + "_GPCLR_REG           GPCLR" + std::to_string(p.number / 32));
+        w("#define CLR" + p.name + "                   " + std::to_string(p.number % 32));
         w("#define P" + p.name + "_GPCLR_BIT           CLR" + p.name);
 
-        w("#define P" + p.name + "_GPLEV_REG           GPLEV" + std::to_string(p.num / 32));
-        w("#define LEV" + p.name + "                   " + std::to_string(p.num % 32));
+        w("#define P" + p.name + "_GPLEV_REG           GPLEV" + std::to_string(p.number / 32));
+        w("#define LEV" + p.name + "                   " + std::to_string(p.number % 32));
         w("#define P" + p.name + "_GPLEV_BIT           LEV" + p.name);
     });
     w("");
