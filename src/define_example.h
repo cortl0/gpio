@@ -11,7 +11,7 @@
 
 #include "cpu.h"
 
-#if defined(BEAGLEBUNE_BLACK_DEFINITIONS_H)
+#if defined(BEAGLEBONE_BLACK_DEFINITIONS_H)
 #include "board/beaglebone_black/beaglebone_black_example.hpp"
 #elif defined(BPI_P2_ZERO_DEFINITIONS_H)
 #include "board/bpi_p2_zero/bpi_p2_zero_example.hpp"

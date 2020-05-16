@@ -53,13 +53,13 @@ int main()
     w("#ifndef " + cpu_name_upper + "_DEFINITIONS_H");
     w("#define " + cpu_name_upper + "_DEFINITIONS_H");
     w("");
-    w("#define CPU_NAME " + cpu_name);
-    w("#define CPU_NAME_LOWER " + cpu_name_lower);
-    w("#define CPU_NAME_UPPER " + cpu_name_upper);
+    w("#define CPU_NAME \"" + cpu_name + "\"");
+    w("#define CPU_NAME_LOWER \"" + cpu_name_lower + "\"");
+    w("#define CPU_NAME_UPPER \"" + cpu_name_upper + "\"");
     w("");
     w("");
     w("/*");
-    w(" * Dataseet: Texas_Instruments_AM335x_Manual.pdf");
+    w(" * Datasheet: http://8iter.ru/datasheets/cpu/Texas_Instruments_AM335x_and_AMIC110_Sitara_Manual.pdf");
     w(" * Page 4990, 4991, 182, 183, 56");
     w(" *");
     w(" * Description");

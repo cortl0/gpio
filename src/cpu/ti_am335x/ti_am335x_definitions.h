@@ -9,9 +9,13 @@
 #ifndef TI_AM335X_DEFINITIONS_H
 #define TI_AM335X_DEFINITIONS_H
 
+#define CPU_NAME "Texas_Instruments_AM335x"
+#define CPU_NAME_LOWER "ti_am335x"
+#define CPU_NAME_UPPER "TI_AM335X"
+
 
 /*
- * Dataseet: Texas_Instruments_AM335x_Manual.pdf
+ * Datasheet: http://8iter.ru/datasheets/cpu/Texas_Instruments_AM335x_and_AMIC110_Sitara_Manual.pdf
  * Page 4990, 4991, 182, 183, 56
  *
  * Description

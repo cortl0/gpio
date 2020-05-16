@@ -58,12 +58,13 @@ int main()
     w("#define " + cpu_name_upper + "_DEFINITIONS_H");
     w("");
     w("");
-    w("#define CPU_NAME " + cpu_name);
-    w("#define CPU_NAME_LOWER " + cpu_name_lower);
-    w("#define CPU_NAME_UPPER " + cpu_name_upper);
+    w("#define CPU_NAME \"" + cpu_name + "\"");
+    w("#define CPU_NAME_LOWER \"" + cpu_name_lower + "\"");
+    w("#define CPU_NAME_UPPER \"" + cpu_name_upper + "\"");
     w("");
     w("");
     w("/*");
+    w(" * Datasheet: http://8iter.ru/datasheets/cpu/Allwinner_H2+_Datasheet_V1.2.pdf");
     w(" * " + cpu_name + "_Datasheet v1.2");
     w(" * 4.22. Port Controller(CPU-PORT)");
     w(" * Page 317");

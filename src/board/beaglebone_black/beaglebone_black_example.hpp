@@ -17,12 +17,14 @@
 void example()
 {
     std::cout << "BeagleBone Black" << std::endl;
+    
+    std::cout << "read ftom P9_41" << std::endl;
 
     cpu _cpu;
 
     while (1)
     {
-        std::cout << std::to_string(_cpu.read_bit(GPIO_DATAIN, GPIO0_20_BIT_OFFSET)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(P9_41_GPIO_DATAIN, P9_41_BIT_OFFSET)) << std::endl;
 
         sleep(1);
     }

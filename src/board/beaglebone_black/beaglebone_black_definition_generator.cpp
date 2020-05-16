@@ -67,9 +67,15 @@ int main()
     w("#ifndef " + board_name_upper + "_DEFINITIONS_H");
     w("#define " + board_name_upper + "_DEFINITIONS_H");
     w("");
-    w("#include \"../../cpu/" + CPU_NAME_LOWER + "/" + CPU_NAME_LOWER + "_definitions.h\"");
+    std::string s("#include \"../../cpu/");
+    s += CPU_NAME_LOWER;
+    s += "/";
+    s += CPU_NAME_LOWER;
+    s += "_definitions.h\"";
+    w(s);
     w("");
-//    w("/*");
+    w("/*");
+    w(" * Datasheet: http://8iter.ru/datasheets/board/BeagleBone_Black_Datasheet.pdf");
 //    w(" * Dataseet: Texas_Instruments_AM335x_Manual.pdf");
 //    w(" * Page 4990, 183");
 //    w(" *");
@@ -77,7 +83,7 @@ int main()
 //    w(" * Data input Register");
 //    w(" * Data output Register");
 //    w(" * Pin bit offset");
-//    w(" */");
+    w(" */");
     w("#define P9_41_GPIO_DATAIN           GPIO_DATAIN");
     w("#define P9_41_GPIO_DATAOUT          GPIO_DATAOUT");
     w("#define P9_41_BIT_OFFSET            GPIO0_20_BIT_OFFSET");

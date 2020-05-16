@@ -10,12 +10,13 @@
 #define ALLWINNER_H2_PLUS_DEFINITIONS_H
 
 
-#define CPU_NAME Allwinner_H2_plus
-#define CPU_NAME_LOWER allwinner_h2_plus
-#define CPU_NAME_UPPER ALLWINNER_H2_PLUS
+#define CPU_NAME "Allwinner_H2_plus"
+#define CPU_NAME_LOWER "allwinner_h2_plus"
+#define CPU_NAME_UPPER "ALLWINNER_H2_PLUS"
 
 
 /*
+ * Datasheet: http://8iter.ru/datasheets/cpu/Allwinner_H2+_Datasheet_V1.2.pdf
  * Allwinner_H2_plus_Datasheet v1.2
  * 4.22. Port Controller(CPU-PORT)
  * Page 317

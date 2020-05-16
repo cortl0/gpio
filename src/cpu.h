@@ -25,11 +25,11 @@
 
 // Pick one
 
-//#include "board/beaglebone_black/beaglebone_black_definitions.h"
+#include "board/beaglebone_black/beaglebone_black_definitions.h"
 //#include "board/bpi_p2_zero/bpi_p2_zero_definitions.h"
 //#include "board/raspberry_pi_zero_r1_3/raspberry_pi_zero_r1_3_definitions.h"
 
-#include "cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
+//#include "cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
 //#include "cpu/broadcom_bcm2835/broadcom_bcm2835_definitions.h"
 //#include "cpu/ti_am335x/ti_am335x_definitions.h"
 
@@ -52,7 +52,7 @@ public:
     bool       read_bit(uword    memory_offset, uword bit_offset);
     void      write_bit(uword    memory_offset, uword bit_offset, bool  value);
     uword     read_bits(uword    memory_offset, uword bit_offset, uword length);
-    void     write_bits(uword    memory_offset, uword bit_offset, uword length, uword value);
+    void     write_bits(uword    memory_offset, uword bit_offset, uword value, uword value_length);
     u_int8_t  read_byte(u_int8_t memory_offset);
     void     write_byte(u_int8_t memory_offset, u_int8_t  value);
     uword read_full_reg(uword    memory_offset);

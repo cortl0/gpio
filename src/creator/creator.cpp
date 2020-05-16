@@ -119,7 +119,7 @@ void create_cpu_definition_generator_cpp()
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"/*\");");
-    w("    w(\" * Datasheet reference\");");
+    w("    w(\" * Datasheet: http://8iter.ru/datasheets/cpu/\" + cpu_name + \"_Datasheet.pdf\");");
     w("    w(\" * Datasheet page number\");");
     w("    w(\" * Base address offset\");");
     w("    w(\" */\");");
@@ -381,7 +381,7 @@ void create_board_definition_generator_cpp()
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"/*\");");
-    w("    w(\" * Datasheet reference\");");
+    w("    w(\" * Datasheet: http://8iter.ru/datasheets/board/\" + board_name + \"_Datasheet.pdf\");");
     w("    w(\" * Datasheet page number\");");
     w("    w(\" *\");");
     w("    w(\" * Description:\");");

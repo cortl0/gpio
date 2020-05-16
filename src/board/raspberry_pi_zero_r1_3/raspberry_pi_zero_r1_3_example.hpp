@@ -27,8 +27,8 @@ void example()
 
     cpu _cpu;
 
-    _cpu.write_bits(J8_P03_GPFSEL_REG, J8_P03_GPFSEL_BIT, 3, FSEL_OUTPUT);
-    _cpu.write_bits(J8_P05_GPFSEL_REG, J8_P05_GPFSEL_BIT, 3, FSEL_INPUT);
+    _cpu.write_bits(J8_P03_GPFSEL_REG, J8_P03_GPFSEL_BIT, FSEL_OUTPUT, 3);
+    _cpu.write_bits(J8_P05_GPFSEL_REG, J8_P05_GPFSEL_BIT, FSEL_INPUT, 3);
 
     for (int i = 0; i < 5; i++)
     {

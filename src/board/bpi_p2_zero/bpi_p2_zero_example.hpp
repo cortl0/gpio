@@ -21,22 +21,27 @@ void example()
 {
     std::cout << "BananaPi P2 Zero (BPI-P2 Zero)" << std::endl;
 
+    std::cout << "write to CON2_P08\nread ftom CON2_P10" << std::endl;
+
     cpu _cpu;
 
-    _cpu.pin_mode(CON2_P08_CFG, CON2_P08_CFG_OFFSET, P_SELECT_OUTPUT);
-    _cpu.pin_mode(CON2_P10_CFG, CON2_P10_CFG_OFFSET, P_SELECT_INPUT);
+    _cpu.write_bits(CON2_P08_CFG_REG, CON2_P08_CFG_BIT, P_SELECT_OUTPUT, 3);
+    _cpu.write_bits(CON2_P10_CFG_REG, CON2_P10_CFG_BIT, P_SELECT_INPUT, 3);
+
+    _cpu.write_bits(CON2_P08_PUL_REG, CON2_P08_PUL_BIT, P_PULL_DISABLE, 2);
+    _cpu.write_bits(CON2_P10_PUL_REG, CON2_P10_PUL_BIT, P_PULL_DOWN, 2);
 
     for (int i = 0; i < 5; i++)
     {
-        _cpu.write_bit(CON2_P08_DAT, CON2_P08_PORT_PIN, HIGH);
+        _cpu.write_bit(CON2_P08_DAT_REG, CON2_P08_DAT_BIT, HIGH);
 
-        std::cout << std::to_string(_cpu.read_bit(CON2_P10_DAT, CON2_P10_PORT_PIN)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(CON2_P10_DAT_REG, CON2_P10_DAT_BIT)) << std::endl;
 
         sleep(1);
 
-        _cpu.write_bit(CON2_P08_DAT, CON2_P08_PORT_PIN, LOW);
+        _cpu.write_bit(CON2_P08_DAT_REG, CON2_P08_DAT_BIT, LOW);
 
-        std::cout << std::to_string(_cpu.read_bit(CON2_P10_DAT, CON2_P10_PORT_PIN)) << std::endl;
+        std::cout << std::to_string(_cpu.read_bit(CON2_P10_DAT_REG, CON2_P10_DAT_BIT)) << std::endl;
 
         sleep(1);
     }

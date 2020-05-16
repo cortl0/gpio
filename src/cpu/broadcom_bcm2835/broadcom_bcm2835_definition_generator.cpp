@@ -52,13 +52,13 @@ int main()
     w("#define " + cpu_name_upper + "_DEFINITIONS_H");
     w("");
     w("");
-    w("#define CPU_NAME " + cpu_name);
-    w("#define CPU_NAME_LOWER " + cpu_name_lower);
-    w("#define CPU_NAME_UPPER " + cpu_name_upper);
+    w("#define CPU_NAME \"" + cpu_name + "\"");
+    w("#define CPU_NAME_LOWER \"" + cpu_name_lower + "\"");
+    w("#define CPU_NAME_UPPER \"" + cpu_name_upper + "\"");
     w("");
     w("");
     w("/*");
-    w(" * http://www.8iter.ru/datasheets/cpu/Broadcom_BCM2835_datasheet.pdf");
+    w(" * Datasheet: http://8iter.ru/datasheets/cpu/Broadcom_BCM2835_Datasheet.pdf");
     w(" * Datasheet page 90");
     w(" * Base address offset");
     w(" */");

@@ -105,10 +105,10 @@ uword cpu::read_bits(uword memory_offset, uword bit_offset, uword length)
     return *reinterpret_cast<uword*>(gpio + memory_offset) >> bit_offset & ~uword(0) >> (sizeof(uword) * 8 - length);
 }
 
-void cpu::write_bits(uword memory_offset, uword bit_offset, uword length, uword value)
+void cpu::write_bits(uword memory_offset, uword bit_offset, uword value, uword value_length)
 {
-    // Attention! The length of the value is not controlled
-    (*reinterpret_cast<uword*>(gpio + memory_offset) &= ~((~uword(0) >> (sizeof(uword) * 8 - length)) << bit_offset)) |= value << bit_offset;
+    // Attention! The length of the value is not controlled. Specify the value_length explicitly
+    (*reinterpret_cast<uword*>(gpio + memory_offset) &= ~((~uword(0) >> (sizeof(uword) * 8 - value_length)) << bit_offset)) |= value << bit_offset;
 }
 
 u_int8_t cpu::read_byte(u_int8_t memory_offset)

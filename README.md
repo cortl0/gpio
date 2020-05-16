@@ -25,22 +25,14 @@ Example of using GPIO for CPUs and Boards
 Template for new CPUs and boards
 
 #### Available CPUs
-Allwinner H2+  
-http://www.allwinnertech.com/index.php?c=product&a=index&id=62  
-  
-Broadcom BCM2835  
-  
-Texas Instruments AM335x  
-https://www.ti.com/sitesearch/docs/universalsearch.tsp?searchTerm=AM335x#q=AM335x&t=technicaldocument&linkId=3
+Allwinner H2+ ([Datasheet](http://8iter.ru/datasheets/cpu/Allwinner_H2+_Datasheet_V1.2.pdf))  
+Broadcom BCM2835 ([Datasheet](http://8iter.ru/datasheets/cpu/Broadcom_BCM2835_Datasheet.pdf))  
+Texas Instruments AM335x ([Manual](http://8iter.ru/datasheets/cpu/Texas_Instruments_AM335x_and_AMIC110_Sitara_Manual.pdf))
 
 #### Available boards
-BananaPi P2 Zero (BPI-P2 Zero)  
-http://www.banana-pi.org/m2pz.html  
-  
-BeagleBone Black  
-https://beagleboard.org/black
-  
-Raspberry Pi Zero rev 1.3  
+BananaPi P2 Zero (BPI-P2 Zero) ([Datasheet](http://8iter.ru/datasheets/board/BananaPI_P2_Zero_Datasheet_v1_0.pdf))  
+BeagleBone Black ([Datasheet](http://8iter.ru/datasheets/board/BeagleBone_Black_Datasheet.pdf))  
+Raspberry Pi Zero rev 1.3 ([Datasheet](http://8iter.ru/datasheets/board/Raspberry_Pi_Zero_r1_3_Datasheet.pdf))
 
 ## Build
 make  

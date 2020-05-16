@@ -17,7 +17,7 @@
 
 
 /*
- * Datasheet http://8iter.ru/datasheets/board/Raspberry_Pi_Zero_r1_3_datasheet.pdf
+ * Datasheet http://8iter.ru/datasheets/board/Raspberry_Pi_Zero_r1_3_Datasheet.pdf
  * Datasheet page number
  *
  * Description:

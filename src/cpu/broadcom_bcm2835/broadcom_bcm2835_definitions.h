@@ -10,13 +10,13 @@
 #define BROADCOM_BCM2835_DEFINITIONS_H
 
 
-#define CPU_NAME Broadcom_BCM2835
-#define CPU_NAME_LOWER broadcom_bcm2835
-#define CPU_NAME_UPPER BROADCOM_BCM2835
+#define CPU_NAME "Broadcom_BCM2835"
+#define CPU_NAME_LOWER "broadcom_bcm2835"
+#define CPU_NAME_UPPER "BROADCOM_BCM2835"
 
 
 /*
- * http://www.8iter.ru/datasheets/cpu/Broadcom_BCM2835_datasheet.pdf
+ * Datasheet: http://8iter.ru/datasheets/cpu/Broadcom_BCM2835_Datasheet.pdf
  * Datasheet page 90
  * Base address offset
  */
