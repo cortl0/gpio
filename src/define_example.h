@@ -33,8 +33,6 @@
 #include "cpu/cpu_template/cpu_template_example.hpp"
 
 
-
-
 #else
 void example()
 {

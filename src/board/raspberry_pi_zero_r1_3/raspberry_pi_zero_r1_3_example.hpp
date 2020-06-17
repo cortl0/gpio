@@ -11,19 +11,13 @@
 
 #include <iostream>
 
-/*
- * Raspberry_Pi_Zero_r1_3
- * Write to PORT_PIN_0
- * Read from PORT_PIN_0
- */
-
 #include "../../cpu.h"
 
 void example()
 {
     std::cout << "Raspberry_Pi_Zero_r1_3" << std::endl;
-
-    std::cout << "write to J8_P03\nread ftom J8_P05" << std::endl;
+    std::cout << "write to J8_P03" << std::endl;
+    std::cout << "read ftom J8_P05" << std::endl;
 
     cpu _cpu;
 

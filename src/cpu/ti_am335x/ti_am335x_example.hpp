@@ -12,10 +12,6 @@
 #include <bitset>
 #include <iostream>
 
-// BananaPi P2 Zero
-// Write to PA13_PIN
-// Read from PA14_PIN
-
 #include "../../cpu.h"
 
 //using namespace std;
@@ -26,7 +22,6 @@
 void example()
 {
     std::cout << "Texas Instruments AM335x" << std::endl;
-    
     std::cout << "read ftom GPIO0_20" << std::endl;
 
     cpu _cpu;

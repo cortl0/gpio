@@ -11,13 +11,11 @@
 
 #include <iostream>
 
-
 #include "../../cpu.h"
 
 void example()
 {
     std::cout << "BeagleBone Black" << std::endl;
-    
     std::cout << "read ftom P9_41" << std::endl;
 
     cpu _cpu;

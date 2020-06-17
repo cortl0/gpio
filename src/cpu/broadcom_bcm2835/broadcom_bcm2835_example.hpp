@@ -11,19 +11,13 @@
 
 #include <iostream>
 
-/*
- * Broadcom_BCM2835
- * Write to GPIO0_0
- * Read from GPIO0_0
- */
-
 #include "../../cpu.h"
 
 void example()
 {
     std::cout << "Broadcom_BCM2835" << std::endl;
-
-    std::cout << "write to P02\nread ftom P03" << std::endl;
+    std::cout << "write to P02" << std::endl;
+    std::cout << "read ftom P03" << std::endl;
 
     cpu _cpu;
 

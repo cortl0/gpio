@@ -11,17 +11,13 @@
 
 #include <iostream>
 
-// BananaPi P2 Zero (BPI-P2 Zero)
-// Write to CON2-P08
-// Read from CON2-P10
-
 #include "../../cpu.h"
 
 void example()
 {
     std::cout << "BananaPi P2 Zero (BPI-P2 Zero)" << std::endl;
-
-    std::cout << "write to CON2_P08\nread ftom CON2_P10" << std::endl;
+    std::cout << "write to CON2_P08" << std::endl;
+    std::cout << "read ftom CON2_P10" << std::endl;
 
     cpu _cpu;
 

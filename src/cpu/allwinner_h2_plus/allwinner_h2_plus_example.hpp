@@ -11,17 +11,13 @@
 
 #include <iostream>
 
-// BananaPi P2 Zero
-// Write to PA13_PIN
-// Read from PA14_PIN
-
 #include "../../cpu.h"
 
 void example()
 {
     std::cout << "Allwinner H2 Plus" << std::endl;
-
-    std::cout << "write to PA13\nread ftom PA14" << std::endl;
+    std::cout << "write to PA13" << std::endl;
+    std::cout << "read ftom PA14" << std::endl;
 
     cpu _cpu;
 
