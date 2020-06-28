@@ -25,8 +25,8 @@
 
 // Pick one
 
-#include "board/beaglebone_black/beaglebone_black_definitions.h"
-//#include "board/bpi_p2_zero/bpi_p2_zero_definitions.h"
+//#include "board/beaglebone_black/beaglebone_black_definitions.h"
+#include "board/bpi_p2_zero/bpi_p2_zero_definitions.h"
 //#include "board/raspberry_pi_zero_r1_3/raspberry_pi_zero_r1_3_definitions.h"
 
 //#include "cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
