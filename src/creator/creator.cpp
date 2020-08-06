@@ -177,6 +177,7 @@ void create_cpu_definition_generator_cpp()
     w("    w(\"#define P_SELECT_OPTION5    0b101\");");
     w("    w(\"#define P_SELECT_OPTION6    0b110\");");
     w("    w(\"#define P_SELECT_DISABLE    0b111\");");
+    w("    w(\"#define P_SELECT_LENGTH     3\");");
 
     w("    w(\"\");");
     w("    w(\"\");");

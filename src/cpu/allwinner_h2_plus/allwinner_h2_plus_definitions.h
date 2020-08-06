@@ -40,19 +40,19 @@
 #define Pn_PUL0(n)      ((n)*0x24+0x1C)         // Port n Pull Register 0 (n from 0 to 6)
 #define Pn_PUL1(n)      ((n)*0x24+0x20)         // Port n Pull Register 1 (n from 0 to 6)
 
-#define PA_INT_CFG0     (0x200+0*0x20+0x00)     // PIO Interrrupt Configure Register 0
-#define PA_INT_CFG1     (0x200+0*0x20+0x04)     // PIO Interrrupt Configure Register 1
-#define PA_INT_CFG2     (0x200+0*0x20+0x08)     // PIO Interrrupt Configure Register 2
-#define PA_INT_CFG3     (0x200+0*0x20+0x0C)     // PIO Interrrupt Configure Register 3
+#define PA_INT_CFG0     (0x200+0*0x20+0x00)     // PIO Interrupt Configure Register 0
+#define PA_INT_CFG1     (0x200+0*0x20+0x04)     // PIO Interrupt Configure Register 1
+#define PA_INT_CFG2     (0x200+0*0x20+0x08)     // PIO Interrupt Configure Register 2
+#define PA_INT_CFG3     (0x200+0*0x20+0x0C)     // PIO Interrupt Configure Register 3
 
 #define PA_INT_CTL      (0x200+0*0x20+0x10)     // PIO Interrupt Control Register
 #define PA_INT_STA      (0x200+0*0x20+0x14)     // PIO Interrupt Status Register
 #define PA_INT_DEB      (0x200+0*0x20+0x18)     // PIO Interrupt Debounce Register
 
-#define PG_INT_CFG0     (0x200+1*0x20+0x00)     // PIO Interrrupt Configure Register 0
-#define PG_INT_CFG1     (0x200+1*0x20+0x04)     // PIO Interrrupt Configure Register 1
-#define PG_INT_CFG2     (0x200+1*0x20+0x08)     // PIO Interrrupt Configure Register 2
-#define PG_INT_CFG3     (0x200+1*0x20+0x0C)     // PIO Interrrupt Configure Register 3
+#define PG_INT_CFG0     (0x200+1*0x20+0x00)     // PIO Interrupt Configure Register 0
+#define PG_INT_CFG1     (0x200+1*0x20+0x04)     // PIO Interrupt Configure Register 1
+#define PG_INT_CFG2     (0x200+1*0x20+0x08)     // PIO Interrupt Configure Register 2
+#define PG_INT_CFG3     (0x200+1*0x20+0x0C)     // PIO Interrupt Configure Register 3
 
 #define PG_INT_CTL      (0x200+1*0x20+0x10)     // PIO Interrupt Control Register
 #define PG_INT_STA      (0x200+1*0x20+0x14)     // PIO Interrupt Status Register
@@ -189,6 +189,8 @@
 #define PA00_DAT_BIT        0
 #define PA00_PUL_REG        PA_PUL0
 #define PA00_PUL_BIT        0
+#define PA00_EINT_CFG_REG   PA_INT_CFG0
+#define PA00_EINT_CFG_BIT   0
 
 #define PA01_CFG_REG        PA_CFG0
 #define PA01_CFG_BIT        4
@@ -196,6 +198,8 @@
 #define PA01_DAT_BIT        1
 #define PA01_PUL_REG        PA_PUL0
 #define PA01_PUL_BIT        2
+#define PA01_EINT_CFG_REG   PA_INT_CFG0
+#define PA01_EINT_CFG_BIT   4
 
 #define PA02_CFG_REG        PA_CFG0
 #define PA02_CFG_BIT        8
@@ -203,6 +207,8 @@
 #define PA02_DAT_BIT        2
 #define PA02_PUL_REG        PA_PUL0
 #define PA02_PUL_BIT        4
+#define PA02_EINT_CFG_REG   PA_INT_CFG0
+#define PA02_EINT_CFG_BIT   8
 
 #define PA03_CFG_REG        PA_CFG0
 #define PA03_CFG_BIT        12
@@ -210,6 +216,8 @@
 #define PA03_DAT_BIT        3
 #define PA03_PUL_REG        PA_PUL0
 #define PA03_PUL_BIT        6
+#define PA03_EINT_CFG_REG   PA_INT_CFG0
+#define PA03_EINT_CFG_BIT   12
 
 #define PA04_CFG_REG        PA_CFG0
 #define PA04_CFG_BIT        16
@@ -217,6 +225,8 @@
 #define PA04_DAT_BIT        4
 #define PA04_PUL_REG        PA_PUL0
 #define PA04_PUL_BIT        8
+#define PA04_EINT_CFG_REG   PA_INT_CFG0
+#define PA04_EINT_CFG_BIT   16
 
 #define PA05_CFG_REG        PA_CFG0
 #define PA05_CFG_BIT        20
@@ -224,6 +234,8 @@
 #define PA05_DAT_BIT        5
 #define PA05_PUL_REG        PA_PUL0
 #define PA05_PUL_BIT        10
+#define PA05_EINT_CFG_REG   PA_INT_CFG0
+#define PA05_EINT_CFG_BIT   20
 
 #define PA06_CFG_REG        PA_CFG0
 #define PA06_CFG_BIT        24
@@ -231,6 +243,8 @@
 #define PA06_DAT_BIT        6
 #define PA06_PUL_REG        PA_PUL0
 #define PA06_PUL_BIT        12
+#define PA06_EINT_CFG_REG   PA_INT_CFG0
+#define PA06_EINT_CFG_BIT   24
 
 #define PA07_CFG_REG        PA_CFG0
 #define PA07_CFG_BIT        28
@@ -238,6 +252,8 @@
 #define PA07_DAT_BIT        7
 #define PA07_PUL_REG        PA_PUL0
 #define PA07_PUL_BIT        14
+#define PA07_EINT_CFG_REG   PA_INT_CFG0
+#define PA07_EINT_CFG_BIT   28
 
 #define PA08_CFG_REG        PA_CFG1
 #define PA08_CFG_BIT        0
@@ -245,6 +261,8 @@
 #define PA08_DAT_BIT        8
 #define PA08_PUL_REG        PA_PUL0
 #define PA08_PUL_BIT        16
+#define PA08_EINT_CFG_REG   PA_INT_CFG1
+#define PA08_EINT_CFG_BIT   0
 
 #define PA09_CFG_REG        PA_CFG1
 #define PA09_CFG_BIT        4
@@ -252,6 +270,8 @@
 #define PA09_DAT_BIT        9
 #define PA09_PUL_REG        PA_PUL0
 #define PA09_PUL_BIT        18
+#define PA09_EINT_CFG_REG   PA_INT_CFG1
+#define PA09_EINT_CFG_BIT   4
 
 #define PA10_CFG_REG        PA_CFG1
 #define PA10_CFG_BIT        8
@@ -259,6 +279,8 @@
 #define PA10_DAT_BIT        10
 #define PA10_PUL_REG        PA_PUL0
 #define PA10_PUL_BIT        20
+#define PA10_EINT_CFG_REG   PA_INT_CFG1
+#define PA10_EINT_CFG_BIT   8
 
 #define PA11_CFG_REG        PA_CFG1
 #define PA11_CFG_BIT        12
@@ -266,6 +288,8 @@
 #define PA11_DAT_BIT        11
 #define PA11_PUL_REG        PA_PUL0
 #define PA11_PUL_BIT        22
+#define PA11_EINT_CFG_REG   PA_INT_CFG1
+#define PA11_EINT_CFG_BIT   12
 
 #define PA12_CFG_REG        PA_CFG1
 #define PA12_CFG_BIT        16
@@ -273,6 +297,8 @@
 #define PA12_DAT_BIT        12
 #define PA12_PUL_REG        PA_PUL0
 #define PA12_PUL_BIT        24
+#define PA12_EINT_CFG_REG   PA_INT_CFG1
+#define PA12_EINT_CFG_BIT   16
 
 #define PA13_CFG_REG        PA_CFG1
 #define PA13_CFG_BIT        20
@@ -280,6 +306,8 @@
 #define PA13_DAT_BIT        13
 #define PA13_PUL_REG        PA_PUL0
 #define PA13_PUL_BIT        26
+#define PA13_EINT_CFG_REG   PA_INT_CFG1
+#define PA13_EINT_CFG_BIT   20
 
 #define PA14_CFG_REG        PA_CFG1
 #define PA14_CFG_BIT        24
@@ -287,6 +315,8 @@
 #define PA14_DAT_BIT        14
 #define PA14_PUL_REG        PA_PUL0
 #define PA14_PUL_BIT        28
+#define PA14_EINT_CFG_REG   PA_INT_CFG1
+#define PA14_EINT_CFG_BIT   24
 
 #define PA15_CFG_REG        PA_CFG1
 #define PA15_CFG_BIT        28
@@ -294,6 +324,8 @@
 #define PA15_DAT_BIT        15
 #define PA15_PUL_REG        PA_PUL0
 #define PA15_PUL_BIT        30
+#define PA15_EINT_CFG_REG   PA_INT_CFG1
+#define PA15_EINT_CFG_BIT   28
 
 #define PA16_CFG_REG        PA_CFG2
 #define PA16_CFG_BIT        0
@@ -301,6 +333,8 @@
 #define PA16_DAT_BIT        16
 #define PA16_PUL_REG        PA_PUL1
 #define PA16_PUL_BIT        0
+#define PA16_EINT_CFG_REG   PA_INT_CFG2
+#define PA16_EINT_CFG_BIT   0
 
 #define PA17_CFG_REG        PA_CFG2
 #define PA17_CFG_BIT        4
@@ -308,6 +342,8 @@
 #define PA17_DAT_BIT        17
 #define PA17_PUL_REG        PA_PUL1
 #define PA17_PUL_BIT        2
+#define PA17_EINT_CFG_REG   PA_INT_CFG2
+#define PA17_EINT_CFG_BIT   4
 
 #define PA18_CFG_REG        PA_CFG2
 #define PA18_CFG_BIT        8
@@ -315,6 +351,8 @@
 #define PA18_DAT_BIT        18
 #define PA18_PUL_REG        PA_PUL1
 #define PA18_PUL_BIT        4
+#define PA18_EINT_CFG_REG   PA_INT_CFG2
+#define PA18_EINT_CFG_BIT   8
 
 #define PA19_CFG_REG        PA_CFG2
 #define PA19_CFG_BIT        12
@@ -322,6 +360,8 @@
 #define PA19_DAT_BIT        19
 #define PA19_PUL_REG        PA_PUL1
 #define PA19_PUL_BIT        6
+#define PA19_EINT_CFG_REG   PA_INT_CFG2
+#define PA19_EINT_CFG_BIT   12
 
 #define PA20_CFG_REG        PA_CFG2
 #define PA20_CFG_BIT        16
@@ -329,6 +369,8 @@
 #define PA20_DAT_BIT        20
 #define PA20_PUL_REG        PA_PUL1
 #define PA20_PUL_BIT        8
+#define PA20_EINT_CFG_REG   PA_INT_CFG2
+#define PA20_EINT_CFG_BIT   16
 
 #define PA21_CFG_REG        PA_CFG2
 #define PA21_CFG_BIT        20
@@ -336,6 +378,8 @@
 #define PA21_DAT_BIT        21
 #define PA21_PUL_REG        PA_PUL1
 #define PA21_PUL_BIT        10
+#define PA21_EINT_CFG_REG   PA_INT_CFG2
+#define PA21_EINT_CFG_BIT   20
 
 // Port C
 #define PC00_CFG_REG        PC_CFG0
@@ -768,6 +812,8 @@
 #define PG00_DAT_BIT        0
 #define PG00_PUL_REG        PG_PUL0
 #define PG00_PUL_BIT        0
+#define PG00_EINT_CFG_REG   PG_INT_CFG0
+#define PG00_EINT_CFG_BIT   0
 
 #define PG01_CFG_REG        PG_CFG0
 #define PG01_CFG_BIT        4
@@ -775,6 +821,8 @@
 #define PG01_DAT_BIT        1
 #define PG01_PUL_REG        PG_PUL0
 #define PG01_PUL_BIT        2
+#define PG01_EINT_CFG_REG   PG_INT_CFG0
+#define PG01_EINT_CFG_BIT   4
 
 #define PG02_CFG_REG        PG_CFG0
 #define PG02_CFG_BIT        8
@@ -782,6 +830,8 @@
 #define PG02_DAT_BIT        2
 #define PG02_PUL_REG        PG_PUL0
 #define PG02_PUL_BIT        4
+#define PG02_EINT_CFG_REG   PG_INT_CFG0
+#define PG02_EINT_CFG_BIT   8
 
 #define PG03_CFG_REG        PG_CFG0
 #define PG03_CFG_BIT        12
@@ -789,6 +839,8 @@
 #define PG03_DAT_BIT        3
 #define PG03_PUL_REG        PG_PUL0
 #define PG03_PUL_BIT        6
+#define PG03_EINT_CFG_REG   PG_INT_CFG0
+#define PG03_EINT_CFG_BIT   12
 
 #define PG04_CFG_REG        PG_CFG0
 #define PG04_CFG_BIT        16
@@ -796,6 +848,8 @@
 #define PG04_DAT_BIT        4
 #define PG04_PUL_REG        PG_PUL0
 #define PG04_PUL_BIT        8
+#define PG04_EINT_CFG_REG   PG_INT_CFG0
+#define PG04_EINT_CFG_BIT   16
 
 #define PG05_CFG_REG        PG_CFG0
 #define PG05_CFG_BIT        20
@@ -803,6 +857,8 @@
 #define PG05_DAT_BIT        5
 #define PG05_PUL_REG        PG_PUL0
 #define PG05_PUL_BIT        10
+#define PG05_EINT_CFG_REG   PG_INT_CFG0
+#define PG05_EINT_CFG_BIT   20
 
 #define PG06_CFG_REG        PG_CFG0
 #define PG06_CFG_BIT        24
@@ -810,6 +866,8 @@
 #define PG06_DAT_BIT        6
 #define PG06_PUL_REG        PG_PUL0
 #define PG06_PUL_BIT        12
+#define PG06_EINT_CFG_REG   PG_INT_CFG0
+#define PG06_EINT_CFG_BIT   24
 
 #define PG07_CFG_REG        PG_CFG0
 #define PG07_CFG_BIT        28
@@ -817,6 +875,8 @@
 #define PG07_DAT_BIT        7
 #define PG07_PUL_REG        PG_PUL0
 #define PG07_PUL_BIT        14
+#define PG07_EINT_CFG_REG   PG_INT_CFG0
+#define PG07_EINT_CFG_BIT   28
 
 #define PG08_CFG_REG        PG_CFG1
 #define PG08_CFG_BIT        0
@@ -824,6 +884,8 @@
 #define PG08_DAT_BIT        8
 #define PG08_PUL_REG        PG_PUL0
 #define PG08_PUL_BIT        16
+#define PG08_EINT_CFG_REG   PG_INT_CFG1
+#define PG08_EINT_CFG_BIT   0
 
 #define PG09_CFG_REG        PG_CFG1
 #define PG09_CFG_BIT        4
@@ -831,6 +893,8 @@
 #define PG09_DAT_BIT        9
 #define PG09_PUL_REG        PG_PUL0
 #define PG09_PUL_BIT        18
+#define PG09_EINT_CFG_REG   PG_INT_CFG1
+#define PG09_EINT_CFG_BIT   4
 
 #define PG10_CFG_REG        PG_CFG1
 #define PG10_CFG_BIT        8
@@ -838,6 +902,8 @@
 #define PG10_DAT_BIT        10
 #define PG10_PUL_REG        PG_PUL0
 #define PG10_PUL_BIT        20
+#define PG10_EINT_CFG_REG   PG_INT_CFG1
+#define PG10_EINT_CFG_BIT   8
 
 #define PG11_CFG_REG        PG_CFG1
 #define PG11_CFG_BIT        12
@@ -845,6 +911,8 @@
 #define PG11_DAT_BIT        11
 #define PG11_PUL_REG        PG_PUL0
 #define PG11_PUL_BIT        22
+#define PG11_EINT_CFG_REG   PG_INT_CFG1
+#define PG11_EINT_CFG_BIT   12
 
 #define PG12_CFG_REG        PG_CFG1
 #define PG12_CFG_BIT        16
@@ -852,6 +920,8 @@
 #define PG12_DAT_BIT        12
 #define PG12_PUL_REG        PG_PUL0
 #define PG12_PUL_BIT        24
+#define PG12_EINT_CFG_REG   PG_INT_CFG1
+#define PG12_EINT_CFG_BIT   16
 
 #define PG13_CFG_REG        PG_CFG1
 #define PG13_CFG_BIT        20
@@ -859,6 +929,8 @@
 #define PG13_DAT_BIT        13
 #define PG13_PUL_REG        PG_PUL0
 #define PG13_PUL_BIT        26
+#define PG13_EINT_CFG_REG   PG_INT_CFG1
+#define PG13_EINT_CFG_BIT   20
 
 // Port L
 #define PL00_CFG_REG        PL_CFG0
@@ -867,6 +939,8 @@
 #define PL00_DAT_BIT        0
 #define PL00_PUL_REG        PL_PUL0
 #define PL00_PUL_BIT        0
+#define PL00_EINT_CFG_REG   PL_INT_CFG0
+#define PL00_EINT_CFG_BIT   0
 
 #define PL01_CFG_REG        PL_CFG0
 #define PL01_CFG_BIT        4
@@ -874,6 +948,8 @@
 #define PL01_DAT_BIT        1
 #define PL01_PUL_REG        PL_PUL0
 #define PL01_PUL_BIT        2
+#define PL01_EINT_CFG_REG   PL_INT_CFG0
+#define PL01_EINT_CFG_BIT   4
 
 #define PL02_CFG_REG        PL_CFG0
 #define PL02_CFG_BIT        8
@@ -881,6 +957,8 @@
 #define PL02_DAT_BIT        2
 #define PL02_PUL_REG        PL_PUL0
 #define PL02_PUL_BIT        4
+#define PL02_EINT_CFG_REG   PL_INT_CFG0
+#define PL02_EINT_CFG_BIT   8
 
 #define PL03_CFG_REG        PL_CFG0
 #define PL03_CFG_BIT        12
@@ -888,6 +966,8 @@
 #define PL03_DAT_BIT        3
 #define PL03_PUL_REG        PL_PUL0
 #define PL03_PUL_BIT        6
+#define PL03_EINT_CFG_REG   PL_INT_CFG0
+#define PL03_EINT_CFG_BIT   12
 
 #define PL04_CFG_REG        PL_CFG0
 #define PL04_CFG_BIT        16
@@ -895,6 +975,8 @@
 #define PL04_DAT_BIT        4
 #define PL04_PUL_REG        PL_PUL0
 #define PL04_PUL_BIT        8
+#define PL04_EINT_CFG_REG   PL_INT_CFG0
+#define PL04_EINT_CFG_BIT   16
 
 #define PL05_CFG_REG        PL_CFG0
 #define PL05_CFG_BIT        20
@@ -902,6 +984,8 @@
 #define PL05_DAT_BIT        5
 #define PL05_PUL_REG        PL_PUL0
 #define PL05_PUL_BIT        10
+#define PL05_EINT_CFG_REG   PL_INT_CFG0
+#define PL05_EINT_CFG_BIT   20
 
 #define PL06_CFG_REG        PL_CFG0
 #define PL06_CFG_BIT        24
@@ -909,6 +993,8 @@
 #define PL06_DAT_BIT        6
 #define PL06_PUL_REG        PL_PUL0
 #define PL06_PUL_BIT        12
+#define PL06_EINT_CFG_REG   PL_INT_CFG0
+#define PL06_EINT_CFG_BIT   24
 
 #define PL07_CFG_REG        PL_CFG0
 #define PL07_CFG_BIT        28
@@ -916,6 +1002,8 @@
 #define PL07_DAT_BIT        7
 #define PL07_PUL_REG        PL_PUL0
 #define PL07_PUL_BIT        14
+#define PL07_EINT_CFG_REG   PL_INT_CFG0
+#define PL07_EINT_CFG_BIT   28
 
 #define PL08_CFG_REG        PL_CFG1
 #define PL08_CFG_BIT        0
@@ -923,6 +1011,8 @@
 #define PL08_DAT_BIT        8
 #define PL08_PUL_REG        PL_PUL0
 #define PL08_PUL_BIT        16
+#define PL08_EINT_CFG_REG   PL_INT_CFG1
+#define PL08_EINT_CFG_BIT   0
 
 #define PL09_CFG_REG        PL_CFG1
 #define PL09_CFG_BIT        4
@@ -930,6 +1020,8 @@
 #define PL09_DAT_BIT        9
 #define PL09_PUL_REG        PL_PUL0
 #define PL09_PUL_BIT        18
+#define PL09_EINT_CFG_REG   PL_INT_CFG1
+#define PL09_EINT_CFG_BIT   4
 
 #define PL10_CFG_REG        PL_CFG1
 #define PL10_CFG_BIT        8
@@ -937,6 +1029,8 @@
 #define PL10_DAT_BIT        10
 #define PL10_PUL_REG        PL_PUL0
 #define PL10_PUL_BIT        20
+#define PL10_EINT_CFG_REG   PL_INT_CFG1
+#define PL10_EINT_CFG_BIT   8
 
 #define PL11_CFG_REG        PL_CFG1
 #define PL11_CFG_BIT        12
@@ -944,6 +1038,8 @@
 #define PL11_DAT_BIT        11
 #define PL11_PUL_REG        PL_PUL0
 #define PL11_PUL_BIT        22
+#define PL11_EINT_CFG_REG   PL_INT_CFG1
+#define PL11_EINT_CFG_BIT   12
 
 
 /*
@@ -961,6 +1057,7 @@
 #define P_SELECT_OPTION5    0b101
 #define P_SELECT_OPTION6    0b110
 #define P_SELECT_DISABLE    0b111
+#define P_SELECT_LENGTH     3
 
 
 /*
@@ -970,6 +1067,21 @@
 #define P_PULL_DISABLE      0b00
 #define P_PULL_UP           0b01
 #define P_PULL_DOWN         0b10
+
+
+/*
+ * Port external interrupt mode
+ * P_SELECT_OPTION(2...6) see in Allwinner H2+ Datasheet
+ * 4.22.2.55. Port External Configute Register
+ * Page 341
+ * Default value is P_EINT_MODE_POSITIVE_EDGE
+ */
+#define P_EINT_MODE_POSITIVE_EDGE   0b000
+#define P_EINT_MODE_NEGATIVE_EDGE   0b001
+#define P_EINT_MODE_HIGH_LEVEL      0b010
+#define P_EINT_MODE_LOW_LEVEL       0b011
+#define P_EINT_MODE_DOUBLE_EDGE     0b100
+#define P_EINT_MODE_LENGTH          3
 
 
 typedef unsigned long int uword;

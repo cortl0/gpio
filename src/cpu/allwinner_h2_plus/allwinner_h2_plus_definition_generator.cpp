@@ -88,19 +88,19 @@ int main()
     w("#define Pn_PUL0(n)      ((n)*0x24+0x1C)         // Port n Pull Register 0 (n from 0 to 6)");
     w("#define Pn_PUL1(n)      ((n)*0x24+0x20)         // Port n Pull Register 1 (n from 0 to 6)");
     w("");
-    w("#define PA_INT_CFG0     (0x200+0*0x20+0x00)     // PIO Interrrupt Configure Register 0");
-    w("#define PA_INT_CFG1     (0x200+0*0x20+0x04)     // PIO Interrrupt Configure Register 1");
-    w("#define PA_INT_CFG2     (0x200+0*0x20+0x08)     // PIO Interrrupt Configure Register 2");
-    w("#define PA_INT_CFG3     (0x200+0*0x20+0x0C)     // PIO Interrrupt Configure Register 3");
+    w("#define PA_INT_CFG0     (0x200+0*0x20+0x00)     // PIO Interrupt Configure Register 0");
+    w("#define PA_INT_CFG1     (0x200+0*0x20+0x04)     // PIO Interrupt Configure Register 1");
+    w("#define PA_INT_CFG2     (0x200+0*0x20+0x08)     // PIO Interrupt Configure Register 2");
+    w("#define PA_INT_CFG3     (0x200+0*0x20+0x0C)     // PIO Interrupt Configure Register 3");
     w("");
     w("#define PA_INT_CTL      (0x200+0*0x20+0x10)     // PIO Interrupt Control Register");
     w("#define PA_INT_STA      (0x200+0*0x20+0x14)     // PIO Interrupt Status Register");
     w("#define PA_INT_DEB      (0x200+0*0x20+0x18)     // PIO Interrupt Debounce Register");
     w("");
-    w("#define PG_INT_CFG0     (0x200+1*0x20+0x00)     // PIO Interrrupt Configure Register 0");
-    w("#define PG_INT_CFG1     (0x200+1*0x20+0x04)     // PIO Interrrupt Configure Register 1");
-    w("#define PG_INT_CFG2     (0x200+1*0x20+0x08)     // PIO Interrrupt Configure Register 2");
-    w("#define PG_INT_CFG3     (0x200+1*0x20+0x0C)     // PIO Interrrupt Configure Register 3");
+    w("#define PG_INT_CFG0     (0x200+1*0x20+0x00)     // PIO Interrupt Configure Register 0");
+    w("#define PG_INT_CFG1     (0x200+1*0x20+0x04)     // PIO Interrupt Configure Register 1");
+    w("#define PG_INT_CFG2     (0x200+1*0x20+0x08)     // PIO Interrupt Configure Register 2");
+    w("#define PG_INT_CFG3     (0x200+1*0x20+0x0C)     // PIO Interrupt Configure Register 3");
     w("");
     w("#define PG_INT_CTL      (0x200+1*0x20+0x10)     // PIO Interrupt Control Register");
     w("#define PG_INT_STA      (0x200+1*0x20+0x14)     // PIO Interrupt Status Register");
@@ -151,6 +151,20 @@ int main()
             w("#define " + p.name + "_PUL" + std::to_string(i) + "         Pn_PUL" + std::to_string(i) + "(" + p.name + "_NUM)         // Port " + p.letter + " Pull Register " + std::to_string(i));
         w("");
     });
+
+//    w("");
+//    w("// Port external interrupt configure register offset");
+//    std::for_each(p.begin(), p.end(), [&](port p)
+//    {
+//        if(p.name[1] == 'A' || p.name[1] == 'G')
+//        {
+//            for(int i = 0; i < 4; i++)
+//                w("#define " + p.name + "_EINT_CFG" + std::to_string(i) + "         Pn_PUL" + std::to_string(i) + "(" + p.name + "_NUM)         // Port " + p.letter + " External Interrupt Configure Register " + std::to_string(i));
+//            w("");
+//        }
+//    });
+    //PA_EINT_CFG0_REG
+
     w("");
     w("/*");
     w(" * Description:");
@@ -189,6 +203,11 @@ int main()
             w("#define " + p.name + s0 + std::to_string(i) + "_PUL_REG        " + p.name + "_PUL" + std::to_string(i / 16));
             w("#define " + p.name + s0 + std::to_string(i) + "_PUL_BIT        " + std::to_string(i % 16 * 2));
 
+            if(p.name[1] == 'A' || p.name[1] == 'G' || p.name[1] == 'L')
+            {
+                w("#define " + p.name + s0 + std::to_string(i) + "_EINT_CFG_REG   " + p.name + "_INT_CFG" + std::to_string(i / 8));
+                w("#define " + p.name + s0 + std::to_string(i) + "_EINT_CFG_BIT   " + std::to_string(i % 8 * 4));
+            }
             w("");
         }
     });
@@ -208,6 +227,7 @@ int main()
     w("#define P_SELECT_OPTION5    0b101");
     w("#define P_SELECT_OPTION6    0b110");
     w("#define P_SELECT_DISABLE    0b111");
+    w("#define P_SELECT_LENGTH     3");
     w("");
     w("");
     w("/*");
@@ -218,6 +238,23 @@ int main()
     w("#define P_PULL_UP           0b01");
     w("#define P_PULL_DOWN         0b10");
     w("");
+
+    w("");
+    w("/*");
+    w(" * Port external interrupt mode");
+    w(" * P_SELECT_OPTION(2...6) see in Allwinner H2+ Datasheet");
+    w(" * 4.22.2.55. Port External Configute Register");
+    w(" * Page 341");
+    w(" * Default value is P_EINT_MODE_POSITIVE_EDGE");
+    w(" */");
+    w("#define P_EINT_MODE_POSITIVE_EDGE   0b000");
+    w("#define P_EINT_MODE_NEGATIVE_EDGE   0b001");
+    w("#define P_EINT_MODE_HIGH_LEVEL      0b010");
+    w("#define P_EINT_MODE_LOW_LEVEL       0b011");
+    w("#define P_EINT_MODE_DOUBLE_EDGE     0b100");
+    w("#define P_EINT_MODE_LENGTH          3");
+    w("");
+
     w("");
     w("typedef unsigned long int uword;");
     w("typedef signed long int sword;");
