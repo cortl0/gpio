@@ -1067,6 +1067,7 @@
 #define P_PULL_DISABLE      0b00
 #define P_PULL_UP           0b01
 #define P_PULL_DOWN         0b10
+#define P_PULL_LENGTH       2
 
 
 /*

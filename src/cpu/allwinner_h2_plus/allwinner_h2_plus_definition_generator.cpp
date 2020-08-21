@@ -237,6 +237,7 @@ int main()
     w("#define P_PULL_DISABLE      0b00");
     w("#define P_PULL_UP           0b01");
     w("#define P_PULL_DOWN         0b10");
+    w("#define P_PULL_LENGTH       3");
     w("");
 
     w("");
