@@ -11,7 +11,7 @@
 cpu::cpu()
 {
     if(init())
-        throw std::runtime_error("cpu::cpu() - init failed\nmaybe the target system does not match the current");
+        throw std::runtime_error("cpu::cpu() - init failed\nmaybe the target system does not match the current\nor permission denied");
 }
 
 cpu::~cpu()
@@ -97,7 +97,15 @@ bool cpu::read_bit(uword memory_offset, uword bit_offset)
 
 void cpu::write_bit(uword memory_offset, uword bit_offset, bool value)
 {
+#ifdef CPU_SAFE_MODE
+    mtx.lock();
+#endif
+
     (*reinterpret_cast<uword*>(gpio + memory_offset) &= ~(static_cast<uword>(1) << bit_offset)) |= static_cast<uword>(value) << bit_offset;
+
+#ifdef CPU_SAFE_MODE
+    mtx.unlock();
+#endif
 }
 
 uword cpu::read_bits(uword memory_offset, uword bit_offset, uword length)
@@ -107,8 +115,16 @@ uword cpu::read_bits(uword memory_offset, uword bit_offset, uword length)
 
 void cpu::write_bits(uword memory_offset, uword bit_offset, uword value, uword value_length)
 {
+#ifdef CPU_SAFE_MODE
+    mtx.lock();
+#endif
+
     // Attention! The length of the value is not controlled. Specify the value_length explicitly
     (*reinterpret_cast<uword*>(gpio + memory_offset) &= ~((~uword(0) >> (sizeof(uword) * 8 - value_length)) << bit_offset)) |= value << bit_offset;
+
+#ifdef CPU_SAFE_MODE
+    mtx.unlock();
+#endif
 }
 
 u_int8_t cpu::read_byte(u_int8_t memory_offset)
@@ -118,7 +134,15 @@ u_int8_t cpu::read_byte(u_int8_t memory_offset)
 
 void cpu::write_byte(u_int8_t memory_offset, u_int8_t value)
 {
+#ifdef CPU_SAFE_MODE
+    mtx.lock();
+#endif
+
     *reinterpret_cast<u_int8_t*>(static_cast<u_int8_t>(gpio) + memory_offset) = value;
+
+#ifdef CPU_SAFE_MODE
+    mtx.unlock();
+#endif
 }
 
 uword cpu::read_full_reg(uword memory_offset)
@@ -128,5 +152,13 @@ uword cpu::read_full_reg(uword memory_offset)
 
 void cpu::write_full_reg(uword memory_offset, uword value)
 {
+#ifdef CPU_SAFE_MODE
+    mtx.lock();
+#endif
+
     *reinterpret_cast<uword*>(gpio + memory_offset) = value;
+
+#ifdef CPU_SAFE_MODE
+    mtx.unlock();
+#endif
 }

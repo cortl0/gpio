@@ -18,6 +18,7 @@ SOURCES += \
 HEADERS += \
         cpu.h \
         define_example.h \
+        config.h \
 #
         cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h \
         cpu/allwinner_h2_plus/allwinner_h2_plus_example.hpp \
