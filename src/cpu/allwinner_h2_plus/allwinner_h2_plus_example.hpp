@@ -19,7 +19,7 @@ void example()
     std::cout << "write to PA13" << std::endl;
     std::cout << "read ftom PA14" << std::endl;
 
-    cpu _cpu;
+    gpio::cpu _cpu;
 
     _cpu.write_bits(PA13_CFG_REG, PA13_CFG_BIT, P_SELECT_OUTPUT, 3);
     _cpu.write_bits(PA14_CFG_REG, PA14_CFG_BIT, P_SELECT_INPUT, 3);

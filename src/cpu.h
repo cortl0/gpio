@@ -25,6 +25,9 @@
 #define LOW     0
 #define HIGH    1
 
+namespace gpio
+{
+
 class cpu
 {
     uword block_size;
@@ -50,5 +53,7 @@ public:
     uword read_full_reg(uword    memory_offset);
     void write_full_reg(uword    memory_offset, uword value);
 };
+
+} // !namespace gpio
 
 #endif // CPU_H

@@ -19,7 +19,7 @@ void example()
     std::cout << "write to CON2_P08" << std::endl;
     std::cout << "read ftom CON2_P10" << std::endl;
 
-    cpu _cpu;
+    gpio::cpu _cpu;
 
     _cpu.write_bits(CON2_P08_CFG_REG, CON2_P08_CFG_BIT, P_SELECT_OUTPUT, 3);
     _cpu.write_bits(CON2_P10_CFG_REG, CON2_P10_CFG_BIT, P_SELECT_INPUT, 3);

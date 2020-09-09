@@ -8,6 +8,9 @@
 
 #include "cpu.h"
 
+namespace gpio
+{
+
 cpu::cpu()
 {
     if(init())
@@ -162,3 +165,5 @@ void cpu::write_full_reg(uword memory_offset, uword value)
     mtx.unlock();
 #endif
 }
+
+} // !namespace gpio

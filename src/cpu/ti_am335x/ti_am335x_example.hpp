@@ -24,7 +24,7 @@ void example()
     std::cout << "Texas Instruments AM335x" << std::endl;
     std::cout << "read ftom GPIO0_20" << std::endl;
 
-    cpu _cpu;
+    gpio::cpu _cpu;
 
     while (1)
     {
