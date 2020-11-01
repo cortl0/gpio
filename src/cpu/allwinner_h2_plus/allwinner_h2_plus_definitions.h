@@ -1085,8 +1085,4 @@
 #define P_EINT_MODE_LENGTH          3
 
 
-typedef unsigned long int uword;
-typedef signed long int sword;
-
-
 #endif // ALLWINNER_H2_PLUS_DEFINITIONS_H

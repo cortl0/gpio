@@ -11,4 +11,7 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
+HEADERS += ti_am335x_definitions.h \
+           ti_am335x_example.hpp
+
 SOURCES += ti_am335x_definition_generator.cpp

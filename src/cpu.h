@@ -21,10 +21,6 @@
 
 #include "config.h"
 
-// Logic level
-#define LOW     0
-#define HIGH    1
-
 namespace gpio
 {
 

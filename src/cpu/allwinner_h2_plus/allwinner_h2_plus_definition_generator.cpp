@@ -255,11 +255,6 @@ int main()
     w("#define P_EINT_MODE_DOUBLE_EDGE     0b100");
     w("#define P_EINT_MODE_LENGTH          3");
     w("");
-
-    w("");
-    w("typedef unsigned long int uword;");
-    w("typedef signed long int sword;");
-    w("");
     w("");
     w("#endif // " + cpu_name_upper + "_DEFINITIONS_H");
     fs.close();

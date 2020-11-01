@@ -40,8 +40,4 @@
 #define GPIO0_20_BIT_OFFSET 20
 
 
-typedef unsigned long int uword;
-typedef signed long int sword;
-
-
 #endif // TI_AM335X_DEFINITIONS_H

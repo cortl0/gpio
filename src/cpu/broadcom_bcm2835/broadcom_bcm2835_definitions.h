@@ -856,8 +856,4 @@
 #define FSEL_FUNCTION5      0b010
 
 
-typedef unsigned long int uword;
-typedef signed long int sword;
-
-
 #endif // BROADCOM_BCM2835_DEFINITIONS_H

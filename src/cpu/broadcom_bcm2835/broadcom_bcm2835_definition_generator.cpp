@@ -169,9 +169,5 @@ int main()
     w("#define FSEL_FUNCTION5      0b010");
     w("");
     w("");
-    w("typedef unsigned long int uword;");
-    w("typedef signed long int sword;");
-    w("");
-    w("");
     w("#endif // " + cpu_name_upper + "_DEFINITIONS_H");
 }

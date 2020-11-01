@@ -181,10 +181,6 @@ void create_cpu_definition_generator_cpp()
 
     w("    w(\"\");");
     w("    w(\"\");");
-    w("    w(\"typedef unsigned long int uword;\");");
-    w("    w(\"typedef signed long int sword;\");");
-    w("    w(\"\");");
-    w("    w(\"\");");
     w("    w(\"#endif // \" + cpu_name_upper + \"_DEFINITIONS_H\");");
     w("}");
     ofs.close();

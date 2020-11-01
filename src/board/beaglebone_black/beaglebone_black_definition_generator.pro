@@ -11,4 +11,8 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
+HEADERS += ../../cpu/ti_am335x/ti_am335x_definitions.h \
+           beaglebone_black_definitions.h \
+           beaglebone_black_example.hpp
+
 SOURCES += beaglebone_black_definition_generator.cpp

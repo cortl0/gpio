@@ -11,4 +11,8 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
+HEADERS += ../../cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h \
+           bpi_p2_zero_definitions.h \
+           bpi_p2_zero_example.hpp
+
 SOURCES += bpi_p2_zero_definition_generator.cpp

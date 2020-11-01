@@ -84,10 +84,6 @@ int main()
     w("#define GPIO0_20_BIT_OFFSET 20");
     w("");
     w("");
-    w("typedef unsigned long int uword;");
-    w("typedef signed long int sword;");
-    w("");
-    w("");
     w("#endif // " + cpu_name_upper + "_DEFINITIONS_H");
     fs.close();
     return 0;
