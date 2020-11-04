@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../cpu/broadcom_bcm2835/broadcom_bcm2835_definitions.h"
+#include "../../cpu/broadcom_bcm2835/broadcom_bcm2835.h"
 
 static std::string board_name("Raspberry_Pi_Zero_r1_3");
 static std::string board_name_lower("raspberry_pi_zero_r1_3");
@@ -75,7 +75,7 @@ static std::vector<connector> con
               })
 };
 
-static std::ofstream fs("raspberry_pi_zero_r1_3_definitions.h", std::ios::out | std::ios::binary);
+static std::ofstream fs("raspberry_pi_zero_r1_3.h", std::ios::out | std::ios::binary);
 
 static void w(std::string s)
 {
@@ -93,14 +93,15 @@ int main()
     w(" *   licensed by GPL v3.0");
     w(" */");
     w("");
-    w("#ifndef " + board_name_upper + "_DEFINITIONS_H");
-    w("#define " + board_name_upper + "_DEFINITIONS_H");
+    w("#ifndef " + board_name_upper + "_H");
+    w("#define " + board_name_upper + "_H");
     w("");
-    std::string path_header;
-    path_header.push_back(34);
-    path_header += "../../cpu/broadcom_bcm2835/broadcom_bcm2835_definitions.h";
-    path_header.push_back(34);
-    w("#include " + path_header);
+    std::string s("#include \"../../cpu/");
+    s += CPU_NAME_LOWER;
+    s += "/";
+    s += CPU_NAME_LOWER;
+    s += ".h\"";
+    w(s);
     w("");
     w("#define BOARD_NAME " + board_name);
     w("#define BOARD_NAME_LOWER " + board_name_lower);
@@ -135,5 +136,5 @@ int main()
     });
 
     w("");
-    w("#endif // " + board_name_upper + "_DEFINITIONS_H");
+    w("#endif // " + board_name_upper + "_H");
 }

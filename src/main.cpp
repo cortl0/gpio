@@ -9,7 +9,7 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "define_example.h"
+#include "example.h"
 
 int main()
 {

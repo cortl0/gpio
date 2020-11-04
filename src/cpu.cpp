@@ -11,9 +11,9 @@
 namespace gpio
 {
 
-cpu::cpu()
+cpu::cpu(uword base_address_gpio)
 {
-    if(init())
+    if(init(base_address_gpio))
         throw std::runtime_error("cpu::cpu() - init failed\nmaybe the target system does not match the current\nor permission denied");
 }
 
@@ -22,12 +22,12 @@ cpu::~cpu()
     release_resourses();
 }
 
-int cpu::init()
+int cpu::init(uword base_address_gpio)
 {
     uword page_size = static_cast<uword>(sysconf(_SC_PAGESIZE));
     uword page_mask = ~(page_size - 1);
-    uword addr_start = BASE_ADDRESS_GPIO & page_mask;
-    uword addr_start_offset = BASE_ADDRESS_GPIO & (~page_mask);
+    uword addr_start = base_address_gpio & page_mask;
+    uword addr_start_offset = base_address_gpio & (~page_mask);
 
     block_size = page_size;
 

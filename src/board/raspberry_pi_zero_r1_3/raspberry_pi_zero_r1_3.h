@@ -6,10 +6,10 @@
  *   licensed by GPL v3.0
  */
 
-#ifndef RASPBERRY_PI_ZERO_R1_3_DEFINITIONS_H
-#define RASPBERRY_PI_ZERO_R1_3_DEFINITIONS_H
+#ifndef RASPBERRY_PI_ZERO_R1_3_H
+#define RASPBERRY_PI_ZERO_R1_3_H
 
-#include "../../cpu/broadcom_bcm2835/broadcom_bcm2835_definitions.h"
+#include "../../cpu/broadcom_bcm2835/broadcom_bcm2835.h"
 
 #define BOARD_NAME Raspberry_Pi_Zero_r1_3
 #define BOARD_NAME_LOWER raspberry_pi_zero_r1_3
@@ -285,4 +285,4 @@
 #define J8_P40_GPLEV_REG        P21_GPLEV_REG
 #define J8_P40_GPLEV_BIT        P21_GPLEV_BIT
 
-#endif // RASPBERRY_PI_ZERO_R1_3_DEFINITIONS_H
+#endif // RASPBERRY_PI_ZERO_R1_3_H

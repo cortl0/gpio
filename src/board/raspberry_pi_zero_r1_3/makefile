@@ -6,7 +6,7 @@
 #   licensed by GPL v3.0
 #
 
-NAME = raspberry_pi_zero_r1_3_definition_generator
+NAME = raspberry_pi_zero_r1_3_generator
 TARGET = $(NAME).out
 
 .PHONY: all clean

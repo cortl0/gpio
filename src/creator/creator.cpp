@@ -53,9 +53,9 @@ void w(std::string s)
     ofs.write(s.c_str(), static_cast<long>(s.size()));
 }
 
-void create_cpu_definition_generator_cpp()
+void create_cpu_generator_cpp()
 {
-    ofs = std::ofstream("../cpu/" + cpu_name_lower + "/" + cpu_name_lower + "_definition_generator.cpp", std::ios::out | std::ios::binary);
+    ofs = std::ofstream("../cpu/" + cpu_name_lower + "/" + cpu_name_lower + "_generator.cpp", std::ios::out | std::ios::binary);
     std::for_each(head_cpp.begin(), head_cpp.end(), [](std::string h){
         w(h);
     });
@@ -95,7 +95,7 @@ void create_cpu_definition_generator_cpp()
     w("         })");
     w("};");
     w("");
-    w("static std::ofstream fs(\"" + cpu_name_lower + "_definitions.h\", std::ios::out | std::ios::binary);");
+    w("static std::ofstream fs(\"" + cpu_name_lower + ".h\", std::ios::out | std::ios::binary);");
     w("");
     w("static void w(std::string s)");
     w("{");
@@ -109,8 +109,8 @@ void create_cpu_definition_generator_cpp()
         w("    w(\"" + h + "\");");
     });
     w("    w(\"\");");
-    w("    w(\"#ifndef \" + cpu_name_upper + \"_DEFINITIONS_H\");");
-    w("    w(\"#define \" + cpu_name_upper + \"_DEFINITIONS_H\");");
+    w("    w(\"#ifndef \" + cpu_name_upper + \"_H\");");
+    w("    w(\"#define \" + cpu_name_upper + \"_H\");");
     w("    w(\"\");");
     w("    w(\"\");");
     w("    w(\"#define CPU_NAME         \" + cpu_name);");
@@ -178,22 +178,24 @@ void create_cpu_definition_generator_cpp()
     w("    w(\"#define P_SELECT_OPTION6    0b110\");");
     w("    w(\"#define P_SELECT_DISABLE    0b111\");");
     w("    w(\"#define P_SELECT_LENGTH     3\");");
-
     w("    w(\"\");");
     w("    w(\"\");");
-    w("    w(\"#endif // \" + cpu_name_upper + \"_DEFINITIONS_H\");");
+    w("    w(\"#include \\\"../../cpu.h\\\"\");");
+    w("    w(\"\");");
+    w("    w(\"\");");
+    w("    w(\"#endif // \" + cpu_name_upper + \"_H\");");
     w("}");
     ofs.close();
 }
 
-void create_cpu_definition_generator_makefile()
+void create_cpu_generator_makefile()
 {
     ofs = std::ofstream("../cpu/" + cpu_name_lower + "/makefile", std::ios::out | std::ios::binary);
     std::for_each(head_make.begin(), head_make.end(), [](std::string h){
         w(h);
     });
     w("");
-    w("NAME = " + cpu_name_lower + "_definition_generator");
+    w("NAME = " + cpu_name_lower + "_generator");
     w("TARGET = $(NAME).out");
     w("");
     w(".PHONY: all clean");
@@ -209,9 +211,9 @@ void create_cpu_definition_generator_makefile()
     ofs.close();
 }
 
-void create_cpu_definition_generator_pro()
+void create_cpu_generator_pro()
 {
-    ofs = std::ofstream("../cpu/" + cpu_name_lower + "/" + cpu_name_lower + "_definition_generator.pro", std::ios::out | std::ios::binary);
+    ofs = std::ofstream("../cpu/" + cpu_name_lower + "/" + cpu_name_lower + "_generator.pro", std::ios::out | std::ios::binary);
     std::for_each(head_make.begin(), head_make.end(), [](std::string h){
         w(h);
     });
@@ -221,10 +223,10 @@ void create_cpu_definition_generator_pro()
     w("CONFIG -= app_bundle");
     w("CONFIG -= qt");
     w("");
-    w("HEADERS += " + cpu_name_lower + "_definitions.h \\");
+    w("HEADERS += " + cpu_name_lower + ".h \\");
     w("           " + cpu_name_lower + "_example.hpp");
     w("");
-    w("SOURCES += " + cpu_name_lower + "_definition_generator.cpp");
+    w("SOURCES += " + cpu_name_lower + "_generator.cpp");
     ofs.close();
 }
 
@@ -240,7 +242,7 @@ void create_cpu_example_hpp()
     w("");
     w("#include <iostream>");
     w("");
-    w("#include \"../../cpu.h\"");
+    w("#include \"" + cpu_name_lower + ".h\"");
     w("");
     w("void example()");
     w("{");
@@ -248,7 +250,7 @@ void create_cpu_example_hpp()
     w("    std::cout << \"write to PORT0_PIN00\" << std::endl;");
     w("    std::cout << \"read ftom PORT0_PIN01\" << std::endl;");
     w("");
-    w("    cpu _cpu;");
+    w("    gpio::cpu _cpu(BASE_ADDRESS_GPIO);");
     w("");
     w("");
     w("    for (int i = 0; i < 5; i++)");
@@ -294,18 +296,18 @@ void create_cpu()
 
     fs::create_directories("../cpu/" + cpu_name_lower);
 
-    create_cpu_definition_generator_cpp();
-    create_cpu_definition_generator_makefile();
-    create_cpu_definition_generator_pro();
+    create_cpu_generator_cpp();
+    create_cpu_generator_makefile();
+    create_cpu_generator_pro();
     create_cpu_example_hpp();
 
 
     system(std::string ("make -C ../cpu/" + cpu_name_lower).c_str());
 }
 
-void create_board_definition_generator_cpp()
+void create_board_generator_cpp()
 {
-    ofs = std::ofstream("../board/" + board_name_lower + "/" + board_name_lower + "_definition_generator.cpp", std::ios::out | std::ios::binary);
+    ofs = std::ofstream("../board/" + board_name_lower + "/" + board_name_lower + "_generator.cpp", std::ios::out | std::ios::binary);
     std::for_each(head_cpp.begin(), head_cpp.end(), [](std::string h){
         w(h);
     });
@@ -315,7 +317,7 @@ void create_board_definition_generator_cpp()
     w("#include <iostream>");
     w("#include <vector>");
     w("");
-    w("#include \"../../cpu/" + board_cpu_name + "/" + board_cpu_name + "_definitions.h\"");
+    w("#include \"../../cpu/" + board_cpu_name + "/" + board_cpu_name + ".h\"");
     w("");
     w("static std::string board_name(\"" + board_name + "\");");
     w("static std::string board_name_lower(\"" + board_name_lower + "\");");
@@ -347,7 +349,7 @@ void create_board_definition_generator_cpp()
     w("         })");
     w("};");
     w("");
-    w("static std::ofstream fs(\"" + board_name_lower + "_definitions.h\", std::ios::out | std::ios::binary);");
+    w("static std::ofstream fs(\"" + board_name_lower + ".h\", std::ios::out | std::ios::binary);");
     w("");
     w("static void w(std::string s)");
     w("{");
@@ -361,13 +363,13 @@ void create_board_definition_generator_cpp()
         w("    w(\"" + h + "\");");
     });
     w("    w(\"\");");
-    w("    w(\"#ifndef \" + board_name_upper + \"_DEFINITIONS_H\");");
-    w("    w(\"#define \" + board_name_upper + \"_DEFINITIONS_H\");");
+    w("    w(\"#ifndef \" + board_name_upper + \"_H\");");
+    w("    w(\"#define \" + board_name_upper + \"_H\");");
     w("    w(\"\");");
 
     w("    std::string path_header;");
     w("    path_header.push_back(34);");
-    w("    path_header += \"../../cpu/" + board_cpu_name + "/" + board_cpu_name + "_definitions.h\";");
+    w("    path_header += \"../../cpu/" + board_cpu_name + "/" + board_cpu_name + ".h\";");
     w("    path_header.push_back(34);");
     w("    w(\"#include \" + path_header);");
 
@@ -385,25 +387,31 @@ void create_board_definition_generator_cpp()
     w("    w(\" * Pin num (bit offset in data register)\");");
     w("    w(\" * Data register offset\");");
     w("    w(\" */\");");
-    w("    w(\"#define CONNECTOR0_PIN00_BIT_OFFSET 0x0\");");
-    w("    w(\"#define CONNECTOR0_PIN00_DAT_OFFSET 0x0\");");
+    w("    w(\"#define CONNECTOR0_PIN00_CFG_REG 0x0\");");
+    w("    w(\"#define CONNECTOR0_PIN00_CFG_BIT 0x0\");");
     w("    w(\"\");");
-    w("    w(\"#define CONNECTOR0_PIN01_BIT_OFFSET 0x0\");");
-    w("    w(\"#define CONNECTOR0_PIN01_DAT_OFFSET 0x3\");");
+    w("    w(\"#define CONNECTOR0_PIN01_CFG_REG 0x0\");");
+    w("    w(\"#define CONNECTOR0_PIN01_CFG_BIT 0x3\");");
     w("    w(\"\");");
-    w("    w(\"#endif // \" + board_name_upper + \"_DEFINITIONS_H\");");
+    w("    w(\"#define CONNECTOR0_PIN00_DAT_REG 0x0\");");
+    w("    w(\"#define CONNECTOR0_PIN00_DAT_BIT 0x0\");");
+    w("    w(\"\");");
+    w("    w(\"#define CONNECTOR0_PIN01_DAT_REG 0x0\");");
+    w("    w(\"#define CONNECTOR0_PIN01_DAT_BIT 0x1\");");
+    w("    w(\"\");");
+    w("    w(\"#endif // \" + board_name_upper + \"_H\");");
     w("}");
     ofs.close();
 }
 
-void create_board_definition_generator_makefile()
+void create_board_generator_makefile()
 {
     ofs = std::ofstream("../board/" + board_name_lower + "/makefile", std::ios::out | std::ios::binary);
     std::for_each(head_make.begin(), head_make.end(), [](std::string h){
         w(h);
     });
     w("");
-    w("NAME = " + board_name_lower + "_definition_generator");
+    w("NAME = " + board_name_lower + "_generator");
     w("TARGET = $(NAME).out");
     w("");
     w(".PHONY: all clean");
@@ -419,9 +427,9 @@ void create_board_definition_generator_makefile()
     ofs.close();
 }
 
-void create_board_definition_generator_pro()
+void create_board_generator_pro()
 {
-    ofs = std::ofstream("../board/" + board_name_lower + "/" + board_name_lower + "_definition_generator.pro", std::ios::out | std::ios::binary);
+    ofs = std::ofstream("../board/" + board_name_lower + "/" + board_name_lower + "_generator.pro", std::ios::out | std::ios::binary);
     std::for_each(head_make.begin(), head_make.end(), [](std::string h){
         w(h);
     });
@@ -431,21 +439,11 @@ void create_board_definition_generator_pro()
     w("CONFIG -= app_bundle");
     w("CONFIG -= qt");
     w("");
-
-//    if(board_cpu_name.size() > 0)
-//    {
-    w("HEADERS += ../../cpu/" + board_cpu_name + "/" + board_cpu_name + "_definitions.h \\");
-    w("           " + board_name_lower + "_definitions.h \\");
+    w("HEADERS += ../../cpu/" + board_cpu_name + "/" + board_cpu_name + ".h \\");
+    w("           " + board_name_lower + ".h \\");
     w("           " + board_name_lower + "_example.hpp");
-//    }
-//    else
-//    {
-//        w("HEADERS += " + board_name_lower + "_definitions.h \\");
-//        w("           " + board_name_lower + "_example.hpp");
-//    }
-
     w("");
-    w("SOURCES += " + board_name_lower + "_definition_generator.cpp");
+    w("SOURCES += " + board_name_lower + "_generator.cpp");
     ofs.close();
 }
 
@@ -461,7 +459,7 @@ void create_board_example_hpp()
     w("");
     w("#include <iostream>");
     w("");
-    w("#include \"../../cpu.h\"");
+    w("#include \"" + board_name_lower + ".h\"");
     w("");
     w("void example()");
     w("{");
@@ -469,22 +467,22 @@ void create_board_example_hpp()
     w("    std::cout << \"write to CONNECTOR0_PIN00\" << std::endl;");
     w("    std::cout << \"read ftom CONNECTOR0_PIN01\" << std::endl;");
     w("");
-    w("    cpu _cpu;");
+    w("    gpio::cpu _cpu(BASE_ADDRESS_GPIO);");
     w("");
-    w("    _cpu.write_bits(CONNECTOR_PIN_00_CFG, CONNECTOR0_PIN00_CFG_OFFSET, P_SELECT_OUTPUT, 3);");
-    w("    _cpu.write_bits(CONNECTOR_PIN_01_CFG, CONNECTOR0_PIN01_CFG_OFFSET, P_SELECT_INPUT, 3);");
+    w("    _cpu.write_bits(CONNECTOR0_PIN00_CFG_REG, CONNECTOR0_PIN00_CFG_BIT, P_SELECT_OUTPUT, 3);");
+    w("    _cpu.write_bits(CONNECTOR0_PIN01_CFG_REG, CONNECTOR0_PIN01_CFG_BIT, P_SELECT_INPUT, 3);");
     w("");
     w("    for (int i = 0; i < 5; i++)");
     w("    {");
-    w("        _cpu.write_bit(CONNECTOR0_PIN00_DAT_OFFSET, CONNECTOR0_PIN00_BIT_OFFSET, HIGH);");
+    w("        _cpu.write_bit(CONNECTOR0_PIN00_DAT_REG, CONNECTOR0_PIN00_DAT_BIT, HIGH);");
     w("");
-    w("        std::cout << std::to_string(_cpu.read_bit(CONNECTOR0_PIN01_DAT_OFFSET, CONNECTOR0_PIN01_BIT_OFFSET)) << std::endl;");
+    w("        std::cout << std::to_string(_cpu.read_bit(CONNECTOR0_PIN01_DAT_REG, CONNECTOR0_PIN01_DAT_BIT)) << std::endl;");
     w("");
     w("        sleep(1);");
     w("");
-    w("        _cpu.write_bit(CONNECTOR0_PIN00_DAT_OFFSET, CONNECTOR0_PIN00_BIT_OFFSET, LOW);");
+    w("        _cpu.write_bit(CONNECTOR0_PIN00_DAT_REG, CONNECTOR0_PIN00_DAT_BIT, LOW);");
     w("");
-    w("        std::cout << std::to_string(_cpu.read_bit(CONNECTOR0_PIN01_DAT_OFFSET, CONNECTOR0_PIN01_BIT_OFFSET)) << std::endl;");
+    w("        std::cout << std::to_string(_cpu.read_bit(CONNECTOR0_PIN01_DAT_REG, CONNECTOR0_PIN01_DAT_BIT)) << std::endl;");
     w("");
     w("        sleep(1);");
     w("    }");
@@ -525,9 +523,9 @@ void create_board()
 
     fs::create_directories("../board/" + board_name_lower);
 
-    create_board_definition_generator_cpp();
-    create_board_definition_generator_makefile();
-    create_board_definition_generator_pro();
+    create_board_generator_cpp();
+    create_board_generator_makefile();
+    create_board_generator_pro();
     create_board_example_hpp();
 
     system(std::string ("make -C ../board/" + board_name_lower).c_str());

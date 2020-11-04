@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../cpu/ti_am335x/ti_am335x_definitions.h"
+#include "../../cpu/ti_am335x/ti_am335x.h"
 
 static std::string board_name("Beaglebone_Black");
 static std::string board_name_lower("beaglebone_black");
@@ -46,7 +46,7 @@ static std::vector<pin> p
             pin( 5, "A", 11),
 };
 
-static std::ofstream fs(board_name_lower + "_definitions.h", std::ios::out | std::ios::binary);
+static std::ofstream fs(board_name_lower + ".h", std::ios::out | std::ios::binary);
 
 static void w(std::string s)
 {
@@ -64,14 +64,14 @@ int main()
     w(" *   licensed by GPL v3.0");
     w(" */");
     w("");
-    w("#ifndef " + board_name_upper + "_DEFINITIONS_H");
-    w("#define " + board_name_upper + "_DEFINITIONS_H");
+    w("#ifndef " + board_name_upper + "_H");
+    w("#define " + board_name_upper + "_H");
     w("");
     std::string s("#include \"../../cpu/");
     s += CPU_NAME_LOWER;
     s += "/";
     s += CPU_NAME_LOWER;
-    s += "_definitions.h\"";
+    s += ".h\"";
     w(s);
     w("");
     w("/*");
@@ -89,7 +89,7 @@ int main()
     w("#define P9_41_BIT_OFFSET            GPIO0_20_BIT_OFFSET");
 
     w("");
-    w("#endif // " + board_name_upper + "_DEFINITIONS_H");
+    w("#endif // " + board_name_upper + "_H");
     fs.close();
     return 0;
 }

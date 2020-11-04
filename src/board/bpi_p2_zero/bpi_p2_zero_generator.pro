@@ -7,12 +7,12 @@
 #
 
 TEMPLATE = app
-CONFIG += console c++11
+CONFIG += console c++14
 CONFIG -= app_bundle
 CONFIG -= qt
 
-HEADERS += ../../cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h \
-           bpi_p2_zero_definitions.h \
+HEADERS += ../../cpu/allwinner_h2_plus/allwinner_h2_plus.h \
+           bpi_p2_zero.h \
            bpi_p2_zero_example.hpp
 
-SOURCES += bpi_p2_zero_definition_generator.cpp
+SOURCES += bpi_p2_zero_generator.cpp

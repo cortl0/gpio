@@ -35,10 +35,11 @@ class cpu
     std::mutex mtx;
 #endif
 
-    int init();
+    int init(uword base_address_gpio);
     int release_resourses();
 public:
-    cpu();
+    cpu() = delete;
+    cpu(uword base_address_gpio);
     ~cpu();
     bool       read_bit(uword    memory_offset, uword bit_offset);
     void      write_bit(uword    memory_offset, uword bit_offset, bool  value);

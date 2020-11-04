@@ -6,7 +6,7 @@
 #   licensed by GPL v3.0
 #
 
-NAME = beaglebone_black_definition_generator
+NAME = beaglebone_black_generator
 TARGET = $(NAME).out
 
 .PHONY: all clean

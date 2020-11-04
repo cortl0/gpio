@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vector>
 
-#include "../../cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
+#include "../../cpu/allwinner_h2_plus/allwinner_h2_plus.h"
 
 static std::string board_name("BPI_P2_Zero");
 static std::string board_name_lower("bpi_p2_zero");
@@ -72,7 +72,7 @@ static std::vector<pin> p
     pin(40, "A", 20)
 };
 
-static std::ofstream fs("bpi_p2_zero_definitions.h", std::ios::out | std::ios::binary);
+static std::ofstream fs("bpi_p2_zero.h", std::ios::out | std::ios::binary);
 
 static void w(std::string s)
 {
@@ -90,14 +90,14 @@ int main()
 	w(" *   licensed by GPL v3.0");
 	w(" */");
     w("");
-    w("#ifndef " + board_name_upper + "_DEFINITIONS_H");
-    w("#define " + board_name_upper + "_DEFINITIONS_H");
+    w("#ifndef " + board_name_upper + "_H");
+    w("#define " + board_name_upper + "_H");
     w("");
     std::string s("#include \"../../cpu/");
     s += CPU_NAME_LOWER;
     s += "/";
     s += CPU_NAME_LOWER;
-    s += "_definitions.h\"";
+    s += ".h\"";
     w(s);
     w("");
     w("#define BOARD_NAME " + board_name);
@@ -129,7 +129,7 @@ int main()
         w("#define " + p.name + "_PUL_BIT            " + p.port_name + p.port_pin_num_str + "_PUL_BIT");
     });
     w("");
-    w("#endif // " + board_name_upper + "_DEFINITIONS_H");
+    w("#endif // " + board_name_upper + "_H");
     fs.close();
     return 0;
 }

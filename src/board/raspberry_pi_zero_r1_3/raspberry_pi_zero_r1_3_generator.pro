@@ -11,8 +11,8 @@ CONFIG += console c++14
 CONFIG -= app_bundle
 CONFIG -= qt
 
-HEADERS += ../../cpu/broadcom_bcm2835/broadcom_bcm2835_definitions.h \
-           raspberry_pi_zero_r1_3_definitions.h \
+HEADERS += ../../cpu/broadcom_bcm2835/broadcom_bcm2835.h \
+           raspberry_pi_zero_r1_3.h \
            raspberry_pi_zero_r1_3_example.hpp
 
-SOURCES += raspberry_pi_zero_r1_3_definition_generator.cpp
+SOURCES += raspberry_pi_zero_r1_3_generator.cpp

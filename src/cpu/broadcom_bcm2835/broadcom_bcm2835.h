@@ -6,8 +6,8 @@
  *   licensed by GPL v3.0
  */
 
-#ifndef BROADCOM_BCM2835_DEFINITIONS_H
-#define BROADCOM_BCM2835_DEFINITIONS_H
+#ifndef BROADCOM_BCM2835_H
+#define BROADCOM_BCM2835_H
 
 
 #define CPU_NAME "Broadcom_BCM2835"
@@ -856,4 +856,7 @@
 #define FSEL_FUNCTION5      0b010
 
 
-#endif // BROADCOM_BCM2835_DEFINITIONS_H
+#include "../../cpu.h"
+
+
+#endif // BROADCOM_BCM2835_H

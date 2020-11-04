@@ -6,7 +6,7 @@
 #   licensed by GPL v3.0
 #
 
-NAME = bpi_p2_zero_definition_generator
+NAME = bpi_p2_zero_generator
 TARGET = $(NAME).out
 
 .PHONY: all clean

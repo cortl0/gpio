@@ -11,7 +11,7 @@
 
 #include <iostream>
 
-#include "../../cpu.h"
+#include "raspberry_pi_zero_r1_3.h"
 
 void example()
 {
@@ -19,7 +19,7 @@ void example()
     std::cout << "write to J8_P03" << std::endl;
     std::cout << "read ftom J8_P05" << std::endl;
 
-    gpio::cpu _cpu;
+    gpio::cpu _cpu(BASE_ADDRESS_GPIO);
 
     _cpu.write_bits(J8_P03_GPFSEL_REG, J8_P03_GPFSEL_BIT, FSEL_OUTPUT, 3);
     _cpu.write_bits(J8_P05_GPFSEL_REG, J8_P05_GPFSEL_BIT, FSEL_INPUT, 3);

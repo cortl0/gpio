@@ -6,7 +6,7 @@
 #   licensed by GPL v3.0
 #
 
-NAME = allwinner_h2_plus_definition_generator
+NAME = allwinner_h2_plus_generator
 TARGET = $(NAME).out
 
 .PHONY: all clean

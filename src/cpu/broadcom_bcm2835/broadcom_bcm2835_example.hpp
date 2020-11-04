@@ -11,7 +11,7 @@
 
 #include <iostream>
 
-#include "../../cpu.h"
+#include "broadcom_bcm2835.h"
 
 void example()
 {
@@ -19,7 +19,7 @@ void example()
     std::cout << "write to P02" << std::endl;
     std::cout << "read ftom P03" << std::endl;
 
-    gpio::cpu _cpu;
+    gpio::cpu _cpu(BASE_ADDRESS_GPIO);
 
     _cpu.write_bits(P02_GPFSEL_REG, P02_GPFSEL_BIT, FSEL_OUTPUT, 3);
     _cpu.write_bits(P03_GPFSEL_REG, P03_GPFSEL_BIT, FSEL_INPUT, 3);

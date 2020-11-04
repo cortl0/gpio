@@ -6,7 +6,7 @@
 #   licensed by GPL v3.0
 #
 
-NAME = ti_am335x_definition_generator
+NAME = ti_am335x_generator
 TARGET = $(NAME).out
 
 .PHONY: all clean

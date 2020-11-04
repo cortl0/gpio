@@ -30,7 +30,7 @@ public:
     }
 };
 
-static std::ofstream fs("broadcom_bcm2835_definitions.h", std::ios::out | std::ios::binary);
+static std::ofstream fs("broadcom_bcm2835.h", std::ios::out | std::ios::binary);
 
 static void w(std::string s)
 {
@@ -48,8 +48,8 @@ int main()
     w(" *   licensed by GPL v3.0");
     w(" */");
     w("");
-    w("#ifndef " + cpu_name_upper + "_DEFINITIONS_H");
-    w("#define " + cpu_name_upper + "_DEFINITIONS_H");
+    w("#ifndef " + cpu_name_upper + "_H");
+    w("#define " + cpu_name_upper + "_H");
     w("");
     w("");
     w("#define CPU_NAME \"" + cpu_name + "\"");
@@ -169,5 +169,8 @@ int main()
     w("#define FSEL_FUNCTION5      0b010");
     w("");
     w("");
-    w("#endif // " + cpu_name_upper + "_DEFINITIONS_H");
+    w("#include \"cpu.h\"");
+    w("");
+    w("");
+    w("#endif // " + cpu_name_upper + "_H");
 }

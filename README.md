@@ -5,23 +5,23 @@ C++
 
 ## Project directories and files
 
-### ./bash/
+#### ./bash/
 GPIO scripts
 
-### ./src/ (cpu || board) /
-Board and CPU Implementation code
+#### ./src/ (cpu || board) / * .h
+Board and CPU definitions
 
-### ./src/ (cpu || board) / * / *_definition_generator.cpp
+#### ./src/ (cpu || board) / * / *_generator.cpp
 Definitions generator for each CPU and Board  
 (calculations before compile time)
 
-### ./src/ (cpu || board) / * / *_example.hpp
+#### ./src/ (cpu || board) / * / *_example.hpp
 Example usung for each CPU and Board
 
-### ./src/main.cpp
-Example of using GPIO for CPUs and Boards
+#### ./src/main.cpp
+Example of using GPIO for all CPUs and Boards
 
-### ./src/creator/creator.cpp
+#### ./src/creator/creator.cpp
 Template for new CPUs and boards
 
 ## Available CPUs
@@ -34,17 +34,36 @@ BananaPi P2 Zero (BPI-P2 Zero) ([Datasheet](http://8iter.ru/datasheets/board/Ban
 BeagleBone Black ([Datasheet](http://8iter.ru/datasheets/board/BeagleBone_Black_Datasheet.pdf))  
 Raspberry Pi Zero rev 1.3 ([Datasheet](http://8iter.ru/datasheets/board/Raspberry_Pi_Zero_r1_3_Datasheet.pdf)) ([Example](https://github.com/cortl0/gpio/blob/master/src/board/raspberry_pi_zero_r1_3/raspberry_pi_zero_r1_3_example.hpp))
 
+## Example project
+https://github.com/cortl0/device
+
 ## Build
 make  
-make all  
 make clean  
 if available:  
 make install  
 make uninstall  
 Qt build
 
-### Example project
-https://github.com/cortl0/device
+## Usage
+```
+#include "board/bpi_p2_zero/bpi_p2_zero.h"
+
+int main()
+{
+    gpio::cpu _cpu(BASE_ADDRESS_GPIO);
+    
+    _cpu.write_bits(CON2_P10_CFG_REG, CON2_P10_CFG_BIT, P_SELECT_INPUT, P_SELECT_LENGTH);
+    _cpu.write_bits(CON2_P10_PUL_REG, CON2_P10_PUL_BIT, P_PULL_DOWN, P_PULL_LENGTH);
+    bool state_CON2_P10 = _cpu.read_bit(CON2_P10_DAT_REG, CON2_P10_DAT_BIT);
+    
+    _cpu.write_bits(CON2_P07_CFG_REG, CON2_P07_CFG_BIT, P_SELECT_OUTPUT, P_SELECT_LENGTH);
+    bool state_CON2_P07 = HIGH;
+    _cpu.write_bit (CON2_P07_DAT_REG, CON2_P07_DAT_BIT, state_CON2_P07);
+    
+    return 0;
+}
+```
 
 ## Author
 Ilya Shishkin  

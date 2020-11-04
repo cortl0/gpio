@@ -6,8 +6,8 @@
  *   licensed by GPL v3.0
  */
 
-#ifndef TI_AM335X_DEFINITIONS_H
-#define TI_AM335X_DEFINITIONS_H
+#ifndef TI_AM335X_H
+#define TI_AM335X_H
 
 #define CPU_NAME "Texas_Instruments_AM335x"
 #define CPU_NAME_LOWER "ti_am335x"
@@ -40,4 +40,7 @@
 #define GPIO0_20_BIT_OFFSET 20
 
 
-#endif // TI_AM335X_DEFINITIONS_H
+#include "../../cpu.h"
+
+
+#endif // TI_AM335X_H

@@ -6,10 +6,10 @@
  *   licensed by GPL v3.0
  */
 
-#ifndef BPI_P2_ZERO_DEFINITIONS_H
-#define BPI_P2_ZERO_DEFINITIONS_H
+#ifndef BPI_P2_ZERO_H
+#define BPI_P2_ZERO_H
 
-#include "../../cpu/allwinner_h2_plus/allwinner_h2_plus_definitions.h"
+#include "../../cpu/allwinner_h2_plus/allwinner_h2_plus.h"
 
 #define BOARD_NAME BPI_P2_Zero
 #define BOARD_NAME_LOWER bpi_p2_zero
@@ -253,4 +253,4 @@
 #define CON2_P40_PUL_REG            PA20_PUL_REG
 #define CON2_P40_PUL_BIT            PA20_PUL_BIT
 
-#endif // BPI_P2_ZERO_DEFINITIONS_H
+#endif // BPI_P2_ZERO_H

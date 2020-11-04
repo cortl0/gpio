@@ -11,16 +11,16 @@
 
 #include <iostream>
 
-#include "../../cpu.h"
+#include "beaglebone_black.h"
 
 void example()
 {
     std::cout << "BeagleBone Black" << std::endl;
     std::cout << "read ftom P9_41" << std::endl;
 
-    gpio::cpu _cpu;
+    gpio::cpu _cpu(BASE_ADDRESS_GPIO);
 
-    while (1)
+    for (int i = 0; i < 10; i++)
     {
         std::cout << std::to_string(_cpu.read_bit(P9_41_GPIO_DATAIN, P9_41_BIT_OFFSET)) << std::endl;
 

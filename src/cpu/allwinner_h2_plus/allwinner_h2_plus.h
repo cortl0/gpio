@@ -6,8 +6,8 @@
  *   licensed by GPL v3.0
  */
 
-#ifndef ALLWINNER_H2_PLUS_DEFINITIONS_H
-#define ALLWINNER_H2_PLUS_DEFINITIONS_H
+#ifndef ALLWINNER_H2_PLUS_H
+#define ALLWINNER_H2_PLUS_H
 
 
 #define CPU_NAME "Allwinner_H2_plus"
@@ -1085,4 +1085,7 @@
 #define P_EINT_MODE_LENGTH          3
 
 
-#endif // ALLWINNER_H2_PLUS_DEFINITIONS_H
+#include "../../cpu.h"
+
+
+#endif // ALLWINNER_H2_PLUS_H

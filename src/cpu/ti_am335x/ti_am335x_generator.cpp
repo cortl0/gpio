@@ -32,7 +32,7 @@ static std::vector<port> p
 
 };
 
-static std::ofstream fs(cpu_name_lower + "_definitions.h", std::ios::out | std::ios::binary);
+static std::ofstream fs(cpu_name_lower + ".h", std::ios::out | std::ios::binary);
 
 static void w(std::string s)
 {
@@ -50,8 +50,8 @@ int main()
     w(" *   licensed by GPL v3.0");
     w(" */");
     w("");
-    w("#ifndef " + cpu_name_upper + "_DEFINITIONS_H");
-    w("#define " + cpu_name_upper + "_DEFINITIONS_H");
+    w("#ifndef " + cpu_name_upper + "_H");
+    w("#define " + cpu_name_upper + "_H");
     w("");
     w("#define CPU_NAME \"" + cpu_name + "\"");
     w("#define CPU_NAME_LOWER \"" + cpu_name_lower + "\"");
@@ -84,7 +84,10 @@ int main()
     w("#define GPIO0_20_BIT_OFFSET 20");
     w("");
     w("");
-    w("#endif // " + cpu_name_upper + "_DEFINITIONS_H");
+    w("#include \"cpu.h\"");
+    w("");
+    w("");
+    w("#endif // " + cpu_name_upper + "_H");
     fs.close();
     return 0;
 }

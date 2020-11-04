@@ -10,10 +10,10 @@ TEMPLATE = app
 CONFIG += console c++17
 CONFIG -= app_bundle
 CONFIG -= qt
-#CONFIG += console -lstdc++fs
+
 QMAKE_CXXFLAGS += -std=c++17
 QMAKE_LFLAGS += -lstdc++fs
-#QMAKE_CFLAGS += -lc++fs
+
 LIBS += -lstdc++fs
 
 SOURCES += creator.cpp

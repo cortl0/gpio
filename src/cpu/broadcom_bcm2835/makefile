@@ -6,7 +6,7 @@
 #   licensed by GPL v3.0
 #
 
-NAME = broadcom_bcm2835_definition_generator
+NAME = broadcom_bcm2835_generator
 TARGET = $(NAME).out
 
 .PHONY: all clean

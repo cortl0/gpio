@@ -11,7 +11,7 @@ CONFIG += console c++17
 CONFIG -= app_bundle
 CONFIG -= qt
 
-HEADERS += broadcom_bcm2835_definitions.h \
+HEADERS += broadcom_bcm2835.h \
            broadcom_bcm2835_example.hpp
 
-SOURCES += broadcom_bcm2835_definition_generator.cpp
+SOURCES += broadcom_bcm2835_generator.cpp
