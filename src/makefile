@@ -6,23 +6,39 @@
 #   licensed by GPL v3.0
 #
 
-NAME = example
-TARGET = $(NAME).out
+TARGET=gpio
 
-PREFIX = /usr/local/bin
+SRCS=cpu.cpp
 
-.PHONY: all clean install uninstall
+HDRS=cpu.h \
+config.h
 
-all: $(TARGET)
+ifeq ($(PREFIX),)
+	PREFIX := /usr/local
+endif
+
+PREFIX_INC=$(PREFIX)/include/gpio
+PREFIX_LIB=$(PREFIX)/lib
+
+.PHONY: all clean install uninstall $(TARGET)_example.out
+
+all: $(TARGET).so
+
+$(TARGET).so: $(SRCS)
+	g++ -std=c++17 -pthread -fPIC -shared -o $(TARGET).so $(SRCS)
 
 clean:
-	rm $(TARGET)
+	rm -f $(TARGET).so
 
-$(TARGET): cpu.cpp main.cpp
-	g++ -std=c++17 -o $(TARGET) cpu.cpp main.cpp
-
-install:
-	install $(TARGET) $(PREFIX)
+install: $(TARGET).so
+	install -d $(PREFIX_LIB)
+	install -m 644 $(TARGET).so $(PREFIX_LIB)/$(TARGET).so
+	install -d $(PREFIX_INC)
+	install -t $(PREFIX_INC) $(HDRS)
 
 uninstall:
-	rm -rf $(PREFIX)/$(TARGET)
+	cd $(PREFIX_INC); rm $(HDRS);
+	cd $(PREFIX_LIB); rm $(TARGET).so;
+
+$(TARGET)_example.out: cpu.cpp main.cpp
+	g++ -std=c++17 -pthread -o $(TARGET)_example.out cpu.cpp main.cpp

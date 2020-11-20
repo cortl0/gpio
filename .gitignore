@@ -1,4 +1,6 @@
+*.o
 *.out
+*.so
 *.user
 *_obj/*
 *_release/*
